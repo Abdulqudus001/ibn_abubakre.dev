@@ -21,9 +21,10 @@
 <script>
 export default {
   metaInfo: {
-    title: 'Hello, world!'
-  }
-}
+    title: 'ibn_abubakre.dev',
+    titleTemplate: '',
+  },
+};
 </script>
 
 <style>
