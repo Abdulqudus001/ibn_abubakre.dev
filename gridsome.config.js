@@ -7,5 +7,19 @@
 module.exports = {
   siteName: 'ibn_abubakre',
   titleTemplate: '%s | <sitename>',
-  plugins: []
-}
+  plugins: [
+    {
+      use: "@gridsome/source-filesystem",
+      options: {
+        path: "./content/blog/**/*.md",
+        typeName: "Post",
+      }
+    },
+  ],
+  transformers: {
+    remark: {}
+  },
+  templates: {
+    Post: '/blog/:path'
+  }
+};
