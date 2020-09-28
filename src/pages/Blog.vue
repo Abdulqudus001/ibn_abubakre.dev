@@ -1,6 +1,15 @@
 <template>
   <Layout>
+    <div>
+      <g-link
+        class="nav-link"
+        :to="`tag/${tag.node.id}`"
+        v-for="(tag, index) in $page.allTag.edges"
+        :key="index"
+      >{{tag.node.id}}</g-link>
+    </div>
     <div class="post-list">
+      totalCount: {{ $page.allPost.totalCount }}
       <div v-for="(edge, index) in $page.allPost.edges" :key="index">
         <h1 class="title" v-html="edge.node.title" />
         <p class="date" v-html="edge.node.date" />
@@ -24,6 +33,14 @@ query {
         timeToRead
         date (format: "D MMMM YYYY")
         path
+      }
+    }
+  }
+  allTag {
+    edges {
+      node {
+        id
+        title
       }
     }
   }

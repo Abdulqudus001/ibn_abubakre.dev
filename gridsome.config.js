@@ -13,6 +13,12 @@ module.exports = {
       options: {
         path: "./content/blog/**/*.md",
         typeName: "Post",
+        refs: {
+          tags: {
+            typeName: "Tag",
+            create: true
+          }
+        }
       }
     },
   ],
@@ -20,6 +26,7 @@ module.exports = {
     remark: {}
   },
   templates: {
-    Post: '/blog/:path'
+    Post: '/blog/:path',
+    Tag: '/tag/:id'
   }
 };
