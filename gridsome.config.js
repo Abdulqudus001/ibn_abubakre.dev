@@ -9,6 +9,9 @@ module.exports = {
   titleTemplate: '%s | <sitename>',
   plugins: [
     {
+      use: "gridsome-plugin-tailwindcss",
+    },
+    {
       use: "@gridsome/source-filesystem",
       options: {
         path: "./content/blog/**/*.md",
