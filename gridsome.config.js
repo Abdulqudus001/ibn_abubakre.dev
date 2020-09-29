@@ -6,7 +6,7 @@
 
 module.exports = {
   siteName: 'ibn_abubakre',
-  titleTemplate: '%s | <sitename>',
+  titleTemplate: '%s | ibn_abubakre.dev',
   plugins: [
     {
       use: "gridsome-plugin-tailwindcss",
