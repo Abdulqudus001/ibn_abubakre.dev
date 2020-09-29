@@ -50,7 +50,7 @@ query {
 <script>
 export default {
   metaInfo: {
-    title: 'Code Tidbits'
+    title: 'Blog'
   }
 }
 </script>
