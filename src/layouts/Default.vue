@@ -1,6 +1,6 @@
 <template>
   <div class="content-wrapper bg-background-primary font-sans text-copy-primary leading-normal flex flex-col min-h-screen" :class="theme">
-    <header class="border-t-14 border-green-700">
+    <header class="border-t-14 border-blue">
       <nav class="container mx-auto flex flex-wrap justify-between items-center py-8">
         <div class="flex flex-wrap">
           <g-link to="/" class="mr-10 no-underline">
@@ -44,7 +44,7 @@
       </div>
     </main>
 
-    <footer class="bg-green-700 text-white">
+    <footer class="bg-background-tertiary text-white">
       <div class="container mx-auto flex flex-col lg:flex-row items-center justify-between py-8">
         <div class="mb-8 lg:mb-0">
           <div>&copy; Copyright {{ new Date().getFullYear() }}. All rights reserved.</div>
