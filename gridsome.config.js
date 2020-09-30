@@ -26,7 +26,14 @@ module.exports = {
     },
   ],
   transformers: {
-    remark: {}
+    remark: {
+      plugins: [
+        [ 'gridsome-plugin-remark-shiki', { theme: 'Material-Theme-Palenight', skipInline: true } ]
+      ],
+      externalLinksTarget: '_blank',
+      externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
+      anchorClassName: 'icon icon-link',
+    }
   },
   templates: {
     Post: '/blog/:path',

@@ -5,11 +5,14 @@ date: "2019-05-04"
 tags: ["array"]
 summary: This is just a sample summary
 ---
-SendGrid is a great service made by Twilio for sending emails. Rather than setting up your own email server for sending email with your apps, we use SendGrid to do the hard work for us. It also decrease the chance of email ending up in spam since it is a known trustworthy service.
+SendGrid is a great service made by Twilio for sending emails. Rather than setting up your own email server for sending email with your apps, we use SendGrid to do the hard work for us.
+
+It also decrease the chance of email ending up in spam since it is a known trustworthy service.
 It also has very easy to use libraries for various platforms for sending emails. Node.js is one of the platforms that are supported.
+
 To send emails with SendGrid, install the SendGrid SDK package by running `npm i @sendgrid/mail` . Then in your code, add `const sgMail = require(‘@sendgrid/mail’);` to import the installed package.
 Then in your code, you send email by:
-```
+```js
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const msg = {
   to: email,

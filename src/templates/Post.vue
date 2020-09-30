@@ -1,7 +1,9 @@
 <template>
   <Layout>
-    Hello bro
-    <div v-html="$page.post.content"/>
+    <div class="post-container flex">
+      <div class="w-full lg:w-3/5 bg-background-primary-100 bg-opacity-0 post__body" v-html="$page.post.content"/>
+      hello second
+    </div>
   </Layout>
 </template>
 
@@ -26,3 +28,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.post__body {
+  padding: 20px;
+  border-radius: 8px;
+}
+</style>
