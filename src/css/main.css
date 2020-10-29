@@ -11,10 +11,12 @@
 
   --bg-background-form: white;
 
-  --text-copy-primary: #2d3748;
+  --text-copy-primary: #2E394F;
   --text-copy-secondary: #4a5568;
 
   --border-border-color-primary: white;
+
+  --bg-orange: #ff6b42;
 }
 
 .theme-light .search-highlighted {
@@ -38,7 +40,7 @@
 }
 
 .theme-dark {
-  --bg-background-primary: #0d2438;
+  --bg-background-primary: #2E394F;
   --bg-background-secondary: #102c44;
   --bg-background-tertiary: #1e3951;
 
@@ -48,6 +50,8 @@
   --text-copy-secondary: #e2e8f0;
 
   --border-border-color-primary: #1a202c;
+
+  --bg-orange: #ff6b42;
 }
 
 .theme-dark .markdown-body {
@@ -72,11 +76,11 @@ body {
 }
 
 a {
-  @apply text-blue font-bold;
+  @apply text-orange font-bold;
 }
 
 a:hover {
-  @apply text-blue;
+  @apply text-orange;
 }
 
 .nav-item.active {

@@ -41,7 +41,7 @@ module.exports = {
         primary: 'var(--bg-background-primary)',
         secondary: 'var(--bg-background-secondary)',
         tertiary: 'var(--bg-background-tertiary)',
-
+        orange: 'var(--bg-orange)',
         form: 'var(--bg-background-form)',
       },
 
@@ -60,6 +60,8 @@ module.exports = {
       white: '#fff',
 
       blue: '#1c75bc',
+
+      orange: '#ff6b42',
 
       // green: {
       //   100: '#f0fff4',
