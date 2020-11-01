@@ -45,6 +45,14 @@ module.exports = {
         form: 'var(--bg-background-form)',
       },
 
+      text: {
+        primary: 'var(--bg-background-primary)',
+        secondary: 'var(--bg-background-secondary)',
+        tertiary: 'var(--bg-background-tertiary)',
+        orange: 'var(--bg-orange)',
+        form: 'var(--bg-background-form)',
+      },
+
       copy: {
         primary: 'var(--text-copy-primary)',
         secondary: 'var(--text-copy-hover)',
