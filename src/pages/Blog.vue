@@ -8,17 +8,26 @@
         :key="index"
       >{{tag.node.id}}</g-link>
     </div>
-    total count: {{ $page.allPost.totalCount }}
-    <div class="posts flex -mx-2">
-      <div v-for="(edge, index) in $page.allPost.edges" :key="index" class="w-1/3 px-2">
-        <g-link :to="edge.node.path" class="max-w-sm rounded overflow-hidden shadow-md block post text-copy-primary hover:text-copy-primary">
+    <div class="posts grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div v-for="(edge, index) in $page.allPost.edges" :key="index" class="mx-auto sm:mx-0">
+        <g-link :to="edge.node.path" class="post max-w-sm rounded-md overflow-hidden shadow-md block text-copy-primary hover:text-copy-primary">
           <div>
             <h1 class="post__title text-orange" v-html="edge.node.title" />
-            <p class="date text-copy-primary" v-html="edge.node.date" />
             <p class="description" v-html="edge.node.summary" />
-            <p>{{edge.node.timeToRead}} min read</p>
-            <div class="flex" v-for="tag in edge.node.tags" :key="tag.id">
-              {{ tag.title }}
+            <div class="post__date">
+              Posted
+              <span>
+                {{ edge.node.date }}.
+              </span>
+              <span>
+                {{ edge.node.timeToRead }} min read
+              </span>
+            </div>
+            
+            <div class="flex mt-3">
+              <g-link v-for="tag in edge.node.tags" :key="tag.id" :to="tag.path" class="mr-2">
+                #{{ tag.title }}
+              </g-link>
             </div>
           </div>
         </g-link>
@@ -76,9 +85,29 @@ export default {
 .posts {
   .post {
     transition: transform .3s, box-shadow .3s;
+    width: 100%;
+    height: 100%;
+    background-color: lighten($color: #39465e, $amount: 0);
+    padding: 30px;
+    font-weight: 400;
+    font-size: .9rem;
+
     &__title {
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.4rem;
+      margin: 20px 0;
+    }
+
+    &__date {
+      font-size: .8rem;
+
+      span {
+        opacity: .9;
+      }
+
+      span:nth-of-type(2) {
+        font-weight: 700;
+      }
     }
 
     &:hover {
