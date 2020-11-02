@@ -31,10 +31,12 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .post__body {
   padding: 20px;
   border-radius: 8px;
+  line-height: 2;
+  font-size: 1.1rem;
 }
 
 pre {
@@ -42,5 +44,13 @@ pre {
   padding: 30px;
   border-radius: 8px;
   overflow-x: auto;
+  line-height: 1.5;
+}
+
+.shiki-inline {
+  background-color: #33384d;
+  padding: .2em .5em;
+  white-space: nowrap;
+  border-radius: 4px;
 }
 </style>
