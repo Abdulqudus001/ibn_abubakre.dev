@@ -68,7 +68,10 @@ query {
 </page-query>
 
 <script>
+import PostSeo from '../mixins/SEO';
+
 export default {
+  mixins: [PostSeo],
   metaInfo: {
     title: 'Blog'
   }

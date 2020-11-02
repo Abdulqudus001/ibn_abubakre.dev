@@ -16,36 +16,36 @@ export default function(Vue, { router, head, isClient }) {
 
   Vue.use(VueFuse);
 
-  head.meta.push({
-    name: 'keywords',
-    content:
-      'Gridsome, Vue, Tailwind, JavaScript, HTML, CSS, Vue.js, VueJS, Web development, Accessibility',
-  });
+  // head.meta.push({
+  //   name: 'keywords',
+  //   content:
+  //     'Gridsome, Vue, Tailwind, JavaScript, HTML, CSS, Vue.js, VueJS, Web development, Accessibility',
+  // });
 
-  head.meta.push({
-    name: 'description',
-    content: 'Personal blog by Abdulqudus Abubakre.',
-  });
+  // head.meta.push({
+  //   name: 'description',
+  //   content: 'Personal blog by Abdulqudus Abubakre.',
+  // });
 
-  head.meta.push({
-    name: 'twitter:title',
-    content: 'Abdulqudus Abubakre | Frontend Developer'
-  });
+  // head.meta.push({
+  //   name: 'twitter:title',
+  //   content: 'Abdulqudus Abubakre | Frontend Developer'
+  // });
 
-  head.meta.push({
-    name: 'twitter:card',
-    content: 'summary_large_image'
-  });
+  // head.meta.push({
+  //   name: 'twitter:card',
+  //   content: 'summary_large_image'
+  // });
 
-  head.meta.push({
-    name: 'twitter:description',
-    content: 'Personal blog by Abdulqudus Abubakre.'
-  });
+  // head.meta.push({
+  //   name: 'twitter:description',
+  //   content: 'Personal blog by Abdulqudus Abubakre.'
+  // });
 
 
 
-  head.meta.push({
-    name: 'author',
-    content: 'Abdulqudus Abubakre',
-  });
+  // head.meta.push({
+  //   name: 'author',
+  //   content: 'Abdulqudus Abubakre',
+  // });
 }

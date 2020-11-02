@@ -5,7 +5,15 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'ibn_abubakre',
+  siteName: 'ibn_abubakre\'s blog',
+  siteDescription: 'ibn_abubakres personal blog and tidbits covering frontend tools and languages including html, css, javacript, vuejs and more',
+  siteUrl: process.env.DEPLOY_URL || 'ibn_abubakre.dev',
+  metadata: {
+    twitter: {
+      site: '@ibn_abubakre',
+      creator: '@ibn_abubakre'
+    }
+  },
   titleTemplate: '%s | ibn_abubakre.dev',
   plugins: [
     {
