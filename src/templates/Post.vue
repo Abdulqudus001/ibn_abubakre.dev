@@ -37,6 +37,33 @@ export default {
   border-radius: 8px;
   line-height: 2;
   font-size: 1.1rem;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 30px;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+}
+
+span.icon-link {
+  &::before {
+    content: '#';
+    margin-right: 10px;
+  }
 }
 
 pre {
