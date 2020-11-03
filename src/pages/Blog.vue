@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="tags flex flex-wrap my-3">
+    <div class="tags flex flex-wrap my-3 mb-12">
       <g-link
         class="nav-link tag rounded-full bg-background-orange text-white px-5 mx-2 py-1 capitalize hover:text-white hover:opacity-75"
         :to="`tag/${tag.node.id}`"
