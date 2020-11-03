@@ -3,7 +3,7 @@ title: "How to Send Email with SendGrid in Node.js Apps"
 path: "send-email"
 date: "2019-05-04"
 tags: ["array", "node"]
-summary: This is just a sample summary
+summary: This post discusses in details how to send emails using the SendGrid service from your Node.js applicatio
 image:
   path: ../media/send-email.png
   alt: "Send Grid Image Thingy"
@@ -12,7 +12,7 @@ image:
 
 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit labore nobis inventore? Similique magni sit culpa cumque labore deleniti repudiandae harum nemo asperiores eum, quidem impedit reiciendis velit aspernatur cum.
 
-# What is SendGrid
+## What is SendGrid
 SendGrid is a great service made by Twilio for sending emails. Rather than setting up your own email server for sending email with your apps, we use SendGrid to do the hard work for us.
 
 ## How to use sendgrid

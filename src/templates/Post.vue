@@ -1,10 +1,13 @@
 <template>
   <Layout>
     <div class="post-container">
-      <div class="post-info text-center my-5">
+      <div class="post-info text-center flex justify-center items-center">
         <h1 class="post__title">
           {{ $page.post.title }}
         </h1>
+        <p class="post__subtitle">
+          {{ $page.post.summary }}
+        </p>
         <div class="post__date">
           Posted
           <span>
@@ -14,12 +17,20 @@
             {{ $page.post.timeToRead }} min read
           </span>
         </div>
+        <div class="post__tags flex flex-wrap justify-center">
+          <g-link
+            class="nav-link tag rounded-full bg-background-orange text-white px-5 mx-2 py-1 capitalize hover:text-white hover:opacity-75"
+            :to="`tag/${tag.id}`"
+            v-for="(tag, index) in $page.post.tags"
+            :key="index"
+          >{{tag.id}}</g-link>
+        </div>
       </div>
-      <div class="flex flex-wrap">
-        <div class="w-full lg:w-3/5 bg-background-primary-100 bg-opacity-0 post__body shadow-md">
+      <div class="flex flex-wrap justify-center">
+        <div class="w-full lg:w-3/5 xl:w-8/12 bg-background-primary-100 bg-opacity-0 post__body shadow-md">
           <figure
             v-if="$page.post.image"
-            class="flex flex-col"
+            class="flex flex-col items-center"
           >
             <g-image
               :alt="$page.post.image.alt"
@@ -32,9 +43,6 @@
             />
           </figure>
           <div v-html="$page.post.content"></div>
-        </div>
-        <div class="post__related w-full lg:w-2/5">
-          hello second
         </div>
       </div>
     </div>
@@ -55,6 +63,11 @@ query Post ($path: String!) {
       path
       caption
       alt
+    }
+    tags {
+      id
+      title
+      path
     }
   }
 }
@@ -91,6 +104,9 @@ h1 {
 
 h2 {
   font-size: 1.8rem;
+  @media screen and (max-width: 600px) {
+    font-size: 1.5rem;
+  }
 }
 
 h3 {
@@ -105,12 +121,51 @@ h4 {
   padding: 20px;
   border-radius: 4px;
   line-height: 2;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   background-color: lighten($color: #2E394F, $amount: 5);
+  @media screen and (max-width: 600px) {
+    font-size: 1rem;
+  }
 }
 
 .post-info {
   margin: 50px auto;
+  max-width: 800px;
+  text-align: center;
+  flex-direction: column;
+  @media screen and (max-width: 600px) {
+    margin-top: 0;
+  }
+
+  h1 {
+    font-size: 4rem;
+
+    @media screen and (max-width: 992px) {
+      font-size: 3rem;
+    }
+
+    @media screen and (max-width: 600px) {
+      font-size: 2.5rem;
+    }
+  }
+
+}
+
+.g-image {
+  margin: 20px auto;
+}
+
+.post__subtitle {
+  font-size: 1.8rem;
+  margin: 30px auto;
+
+  @media screen and (max-width: 992px) {
+    font-size: 1.5rem;
+  }
+}
+
+.post__tags {
+  margin: 30px auto;
 }
 
 .post__date {
@@ -144,7 +199,7 @@ pre {
 .shiki-inline {
   background-color: #33384d;
   padding: .2em .5em;
-  white-space: nowrap;
+  word-break: break-all;
   border-radius: 4px;
 }
 </style>

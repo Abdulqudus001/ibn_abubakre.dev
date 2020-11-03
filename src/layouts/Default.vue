@@ -1,7 +1,7 @@
 <template>
   <div class="content-wrapper bg-background-primary font-sans text-copy-primary leading-normal flex flex-col min-h-screen" :class="theme">
     <header class="border-t-14 border-orange">
-      <nav class="container mx-auto flex flex-wrap justify-between items-start md:items-center py-2">
+      <nav class="container mx-auto flex flex-wrap justify-between md:items-center py-2" :class="isOpen ? 'items-start' : 'items-center'">
         <div class="flex flex-wrap">
           <g-link to="/" class="mr-10 no-underline">
             <g-image src="../../static/brand.png" class="w-20 rounded-full" alt="logo" />
@@ -29,7 +29,7 @@
         <div class="mb-6 md:mb-0 hidden md:block">
           <search-input />
         </div>
-        <div class="block mt-5 md:hidden">
+        <div class="block md:hidden" :class="isOpen ? 'mt-12' : ''">
           <button @click="toggle" class="flex items-center px-3 py-2 border rounded border-gray-500 hover:text-gray-600 hover:border-gray-600" data-cypress="hamburger">
             <svg class="current-color h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" fill="gray" /></svg>
           </button>
