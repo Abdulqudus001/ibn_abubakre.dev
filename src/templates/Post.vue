@@ -16,7 +16,23 @@
         </div>
       </div>
       <div class="flex flex-wrap">
-        <div class="w-full lg:w-3/5 bg-background-primary-100 bg-opacity-0 post__body shadow-md" v-html="$page.post.content"/>
+        <div class="w-full lg:w-3/5 bg-background-primary-100 bg-opacity-0 post__body shadow-md">
+          <figure
+            v-if="$page.post.image"
+            class="flex flex-col"
+          >
+            <g-image
+              :alt="$page.post.image.alt"
+              :src="$page.post.image.path"
+              class="mb-2"
+            />
+            <figcaption
+              class="image-caption self-center mb-15"
+              v-html="$page.post.image.caption"
+            />
+          </figure>
+          <div v-html="$page.post.content"></div>
+        </div>
         <div class="post__related w-full lg:w-2/5">
           hello second
         </div>
@@ -35,6 +51,11 @@ query Post ($path: String!) {
     timeToRead
     summary
     path
+    image {
+      path
+      caption
+      alt
+    }
   }
 }
 </page-query>
