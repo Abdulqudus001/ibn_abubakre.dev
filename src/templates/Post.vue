@@ -44,6 +44,9 @@
           </figure>
           <div v-html="$page.post.content"></div>
         </div>
+        <div class="w-full lg:w-3/5 xl:w-8/12 post__comment">
+          <Disqus shortname="ibn-abubakre" :identifier="$page.post.title" />
+        </div>
       </div>
     </div>
   </Layout>
@@ -179,6 +182,10 @@ h4 {
   span:nth-of-type(2) {
     font-weight: 700;
   }
+}
+
+.post__comment {
+  margin: 50px 0;
 }
 
 span.icon-link {
