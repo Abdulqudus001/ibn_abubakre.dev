@@ -10,7 +10,7 @@
     </div>
     <div class="posts grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       <div v-for="(edge, index) in $page.allPost.edges" :key="index" class="mx-auto sm:mx-0">
-        <g-link :to="edge.node.path" class="post max-w-sm rounded-md overflow-hidden shadow-md block text-copy-primary hover:text-copy-primary">
+        <div class="post max-w-sm rounded-md overflow-hidden shadow-md block text-copy-primary hover:text-copy-primary">
           <div>
             <h1 class="post__title text-orange" v-html="edge.node.title" />
             <p class="description" v-html="edge.node.summary" />
@@ -24,13 +24,14 @@
               </span>
             </div>
             
-            <div class="flex mt-3">
+            <div class="flex mt-3 post__tags">
               <g-link v-for="tag in edge.node.tags" :key="tag.id" :to="tag.path" class="mr-2">
                 #{{ tag.title }}
               </g-link>
             </div>
           </div>
-        </g-link>
+          <g-link :to="edge.node.path" class="post__link">Read More</g-link>
+        </div>
       </div>
     </div>
   </Layout>
@@ -94,6 +95,7 @@ export default {
     padding: 30px;
     font-weight: 400;
     font-size: .9rem;
+    position: relative;
 
     &__title {
       font-weight: 700;
@@ -116,6 +118,23 @@ export default {
     &:hover {
       transform: translateY(-5px);
       box-shadow: 1px 10px 30px 0 rgba(0,0,0,.1)
+    }
+
+    &__link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      opacity: 0;
+      z-index: 0;
+      text-indent: -9999px;
+    }
+
+    &__tags {
+      position: relative;
+      z-index: 1;
     }
   }
 }
