@@ -33,13 +33,8 @@
             class="flex flex-col items-center"
           >
             <g-image
-              :alt="$page.post.image.alt"
-              :src="$page.post.image.path"
+              :src="$page.post.image"
               class="mb-2"
-            />
-            <figcaption
-              class="image-caption self-center mb-15"
-              v-html="$page.post.image.caption"
             />
           </figure>
           <div v-html="$page.post.content"></div>
@@ -62,11 +57,7 @@ query Post ($path: String!) {
     timeToRead
     summary
     path
-    image {
-      path
-      caption
-      alt
-    }
+    image
     tags {
       id
       title
