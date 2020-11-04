@@ -17,19 +17,25 @@ module.exports = {
   titleTemplate: '%s | ibn_abubakre.dev',
   plugins: [
     {
-      use: "gridsome-plugin-tailwindcss",
+      use: 'gridsome-plugin-tailwindcss',
     },
     {
-      use: "@gridsome/source-filesystem",
+      use: '@gridsome/source-filesystem',
       options: {
-        path: "./content/blog/**/*.md",
-        typeName: "Post",
+        path: './content/blog/**/*.md',
+        typeName: 'Post',
         refs: {
           tags: {
-            typeName: "Tag",
+            typeName: 'Tag',
             create: true
           }
         }
+      }
+    },
+    {
+      use: `gridsome-plugin-netlify-cms`,
+      options: {
+        publicPath: `/admin`
       }
     },
   ],
