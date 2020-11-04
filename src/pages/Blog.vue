@@ -135,6 +135,7 @@ export default {
     &__tags {
       position: relative;
       z-index: 1;
+      margin-bottom: 0;
     }
   }
 }
