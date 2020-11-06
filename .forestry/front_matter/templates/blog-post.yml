@@ -1,5 +1,5 @@
 ---
-label: Blog Post
+label: Post
 hide_body: false
 fields:
 - name: title
@@ -20,7 +20,7 @@ fields:
   type: file
   config:
     maxSize: 64
-  label: image
+  label: Image
 - name: content
   type: textarea
   default: ''
@@ -30,5 +30,14 @@ fields:
     schema:
       format: markdown
   label: Content
+- name: date
+  type: datetime
+  label: Date
+  description: ''
+  config:
+    required: false
+    date_format: 
+    time_format: 
+    display_utc: false
 pages:
 - content.blog/how-to-send-email-with-sendgrid-in-node.js-apps.md
