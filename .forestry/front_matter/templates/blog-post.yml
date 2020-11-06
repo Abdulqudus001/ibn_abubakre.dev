@@ -21,3 +21,5 @@ fields:
   config:
     maxSize: 64
   label: image
+pages:
+- content.blog/how-to-send-email-with-sendgrid-in-node.js-apps.md
