@@ -38,9 +38,17 @@
             />
           </figure>
           <div v-html="$page.post.content"></div>
+          <hr>
+          <div class="social">
+            <g-link
+              :to="`https://twitter.com/intent/tweet?text=${$page.post.title} by @ibn_abubakre&url=ibn-abubakre.netlify.app/${$page.post.path}`"
+            >
+              <img src="@/assets/images/twitter.svg" alt="">
+            </g-link>
+          </div>
         </div>
         <div class="w-full lg:w-3/5 xl:w-8/12 post__comment">
-          <Disqus shortname="ibn-abubakre" :identifier="$page.post.title" />
+          <Disqus shortname="ibn-abubakre" :identifier="$page.post.title" :lazyConfig="lazyConfig" />
         </div>
       </div>
     </div>
@@ -72,11 +80,13 @@ import PostSeo from '../mixins/SEO';
 
 export default {
   mixins: [PostSeo],
-  // metaInfo() {
-  //   return {
-  //     title: this.$page.post.title,
-  //   };
-  // }
+  data: () => ({
+    lazyConfig: {
+      root: null,
+      rootMargin: '500px',
+      threshold: 0.5,
+    }
+  }),
 };
 </script>
 
@@ -119,6 +129,12 @@ h4 {
   background-color: lighten($color: #2E394F, $amount: 5);
   @media screen and (max-width: 600px) {
     font-size: 1rem;
+  }
+
+  .social {
+    img {
+      width: 40px;
+    }
   }
 }
 
