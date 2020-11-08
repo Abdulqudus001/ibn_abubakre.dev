@@ -63,7 +63,7 @@ export default {
         {
           key: 'twitter:card',
           name: 'twitter:card',
-          content: image ? 'summary_large_image' : 'summary',
+          content: 'summary_large_image',
         },
         {
           key: 'twitter:image',
