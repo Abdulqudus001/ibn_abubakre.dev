@@ -38,20 +38,22 @@
             />
           </figure>
           <div v-html="$page.post.content"></div>
-          <h3>Share this article</h3>
-          <hr class="mb-4">
-          <div class="social flex py-4">
-            <g-link
-              class="mr-4"
-              :to="`https://twitter.com/intent/tweet?text=${$page.post.title} by @ibn_abubakre&url=https://ibn-abubakre.netlify.app${$page.post.path}`"
-            >
-              <img src="@/assets/images/twitter.svg" alt="">
-            </g-link>
-            <g-link
-              :to="`https://www.linkedin.com/shareArticle?mini=true&url=https://ibn-abubakre.netlify.app/${$page.post.path}&title=${$page.post.title}&summary=${$page.post.summary}&source=ibn_abubakre's blog`"
-            >
-              <img src="@/assets/images/linkedin.svg" alt="">
-            </g-link>
+          <div class="pt-10">
+            <h3>Share this article</h3>
+            <hr class="mb-4">
+            <div class="social flex py-4">
+              <g-link
+                class="mr-4"
+                :to="`https://twitter.com/intent/tweet?text=${$page.post.title} by @ibn_abubakre&url=https://ibn-abubakre.netlify.app${$page.post.path}`"
+              >
+                <img src="@/assets/images/twitter.svg" alt="">
+              </g-link>
+              <g-link
+                :to="`https://www.linkedin.com/shareArticle?mini=true&url=https://ibn-abubakre.netlify.app/${$page.post.path}&title=${$page.post.title}&summary=${$page.post.summary}&source=ibn_abubakre's blog`"
+              >
+                <img src="@/assets/images/linkedin.svg" alt="">
+              </g-link>
+            </div>
           </div>
         </div>
         <div class="w-full lg:w-3/5 xl:w-8/12 post__comment">

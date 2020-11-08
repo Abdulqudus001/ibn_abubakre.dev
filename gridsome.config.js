@@ -7,14 +7,14 @@
 module.exports = {
   siteName: 'ibn_abubakre\'s blog',
   siteDescription: 'ibn_abubakres personal blog and tidbits covering frontend tools and languages including html, css, javacript, vuejs and more',
-  siteUrl: process.env.DEPLOY_URL || 'ibn_abubakre.netlify.app',
+  siteUrl: process.env.DEPLOY_URL || 'ibn-abubakre.netlify.app',
   metadata: {
     twitter: {
       site: '@ibn_abubakre',
       creator: '@ibn_abubakre'
     }
   },
-  titleTemplate: '%s | ibn_abubakre.dev',
+  titleTemplate: '%s | ibn-abubakre.dev',
   plugins: [
     {
       use: 'gridsome-plugin-tailwindcss',

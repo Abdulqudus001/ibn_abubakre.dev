@@ -6,7 +6,7 @@ summary: This post discusses in details how to send emails using the SendGrid
 tags:
   - Arrays
   - JavaScript
-image: /uploads/send-email.png
+image: https://res.cloudinary.com/ibnabubakre/image/upload/v1604870842/send-email.png
 ---
 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit labore nobis inventore? Similique magni sit culpa cumque labore deleniti repudiandae harum nemo asperiores eum, quidem impedit reiciendis velit aspernatur cum.
 
@@ -41,4 +41,4 @@ where `process.env.SENDGRID_API_KEY` is the SendGrid’s API, which should be st
 Testing is easy since you don’t need to set up a local development email server.
 Sending email is this simple and easy with SendGrid API. It is also free if you send small amounts of email, which is a great benefit.
 
-![Sendgrid hero image](assets/uploads/send-email.png)
+![Sendgrid hero image](https://res.cloudinary.com/ibnabubakre/image/upload/v1604870842/send-email.png)
