@@ -41,4 +41,4 @@ where `process.env.SENDGRID_API_KEY` is the SendGrid’s API, which should be st
 Testing is easy since you don’t need to set up a local development email server.
 Sending email is this simple and easy with SendGrid API. It is also free if you send small amounts of email, which is a great benefit.
 
-![](/uploads/send-email.png)
+![Sendgrid hero image](assets/uploads/send-email.png)
