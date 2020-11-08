@@ -38,12 +38,19 @@
             />
           </figure>
           <div v-html="$page.post.content"></div>
-          <hr>
-          <div class="social">
+          <h3>Share this article</h3>
+          <hr class="mb-4">
+          <div class="social flex py-4">
             <g-link
-              :to="`https://twitter.com/intent/tweet?text=${$page.post.title} by @ibn_abubakre&url=ibn-abubakre.netlify.app/${$page.post.path}`"
+              class="mr-4"
+              :to="`https://twitter.com/intent/tweet?text=${$page.post.title} by @ibn_abubakre&url=https://ibn-abubakre.netlify.app${$page.post.path}`"
             >
               <img src="@/assets/images/twitter.svg" alt="">
+            </g-link>
+            <g-link
+              :to="`https://www.linkedin.com/shareArticle?mini=true&url=https://ibn-abubakre.netlify.app/${$page.post.path}&title=${$page.post.title}&summary=${$page.post.summary}&source=ibn_abubakre's blog`"
+            >
+              <img src="@/assets/images/linkedin.svg" alt="">
             </g-link>
           </div>
         </div>
@@ -133,7 +140,7 @@ h4 {
 
   .social {
     img {
-      width: 40px;
+      width: 30px;
     }
   }
 }

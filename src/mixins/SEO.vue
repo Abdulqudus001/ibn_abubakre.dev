@@ -14,7 +14,7 @@ export default {
     const siteUrl = this.$static.metadata.siteUrl;
     const postPath = this.$page.post.path;
     const image = this.$page.post.image?.path;
-    const imagePath = (image && `${siteUrl}${image.src}`) || '';
+    const imagePath = (image && `${siteUrl}${image.src}`) || `${siteUrl}/brand.png`;
 
     return {
       title: this.$page.post.title,
