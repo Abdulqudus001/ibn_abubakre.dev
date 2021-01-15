@@ -21,9 +21,9 @@
             <li>
               <g-link to="/blog" class="text-copy-primary nav-item hover:text-gray-600" data-cypress="blog">Blog</g-link>
             </li>
-            <!-- <li>
+            <li>
               <theme-switcher :theme="theme" @themeChanged="updateTheme" />
-            </li> -->
+            </li>
           </ul>
         </div>
         <div class="mb-6 md:mb-0 hidden md:block">
