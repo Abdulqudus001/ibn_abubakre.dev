@@ -14,6 +14,7 @@ export default {
     const siteUrl = this.$static.metadata.siteUrl;
     const postPath = this.$page.post.path;
     const image = this.$page.post.image;
+    console.log(image);
     const imagePath = (image && `${siteUrl}${image.src}`) || `${siteUrl}/brand.png`;
 
     return {
@@ -45,16 +46,16 @@ export default {
           property: 'og:image',
           content: imagePath,
         },
-        {
-          key: 'og:image:width',
-          property: 'og:image:width',
-          content: (image && image.size.width) || '',
-        },
-        {
-          key: 'og:image:height',
-          property: 'og:image:height',
-          content: (image && image.size.height) || '',
-        },
+        // {
+        //   key: 'og:image:width',
+        //   property: 'og:image:width',
+        //   content: (image && image.size.width) || '',
+        // },
+        // {
+        //   key: 'og:image:height',
+        //   property: 'og:image:height',
+        //   content: (image && image.size.height) || '',
+        // },
         {
           key: 'twitter:description',
           name: 'twitter:description',

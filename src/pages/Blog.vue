@@ -12,6 +12,16 @@
       <div v-for="(edge, index) in $page.allPost.edges" :key="index" class="mx-auto sm:mx-0">
         <div class="post max-w-sm rounded-md overflow-hidden shadow-md block text-copy-primary hover:text-copy-primary">
           <div>
+            <div
+              class="post__image"
+              :style="{ 'background-image': `url(${edge.node.image})` }"
+            />
+            <!-- <div v-if="edge.node.image" class="post__image">
+              <g-image
+                :src="edge.node.image"
+                class="mb-2"
+              />
+            </div> -->
             <h1 class="post__title text-orange" v-html="edge.node.title" />
             <p class="description" v-html="edge.node.summary" />
             <div class="post__date">
@@ -49,6 +59,7 @@ query {
         date (format: "D MMMM YYYY")
         path,
         summary,
+        image,
         tags {
           id
           title
@@ -96,6 +107,16 @@ export default {
     font-weight: 400;
     font-size: .9rem;
     position: relative;
+
+    &__image {
+      width: calc(100% + 60px);
+      height: 200px;
+      border-radius: 0.375rem 0.375rem 0 0;
+      overflow: hidden;
+      background-size: cover;
+      margin: -30px;
+      margin-bottom: 10px;
+    }
 
     &__title {
       font-weight: 700;
