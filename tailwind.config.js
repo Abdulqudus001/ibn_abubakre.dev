@@ -43,6 +43,7 @@ module.exports = {
         tertiary: 'var(--bg-background-tertiary)',
         orange: 'var(--bg-orange)',
         form: 'var(--bg-background-form)',
+        post: 'var(--bg-post)'
       },
 
       text: {

@@ -27,7 +27,7 @@
         </div>
       </div>
       <div class="flex flex-wrap justify-center">
-        <div class="w-full lg:w-3/5 xl:w-8/12 bg-background-primary-100 bg-opacity-0 post__body shadow-md">
+        <div class="w-full lg:w-3/5 xl:w-8/12 bg-background-post bg-opacity-0 post__body shadow-md">
           <figure
             v-if="$page.post.image"
             class="flex flex-col items-center"
@@ -135,7 +135,7 @@ h4 {
   border-radius: 4px;
   line-height: 2;
   font-size: 1.2rem;
-  background-color: lighten($color: #2E394F, $amount: 5);
+  // background-color: lighten($color: #2E394F, $amount: 5);
   @media screen and (max-width: 600px) {
     font-size: 1rem;
   }

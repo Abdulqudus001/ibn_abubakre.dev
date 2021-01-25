@@ -17,6 +17,8 @@
   --border-border-color-primary: white;
 
   --bg-orange: #ff6b42;
+
+  --bg-post: #f3f3f3;
 }
 
 .theme-light .search-highlighted {
@@ -52,6 +54,8 @@
   --border-border-color-primary: #1a202c;
 
   --bg-orange: #ff6b42;
+
+  --bg-post: #37455f;
 }
 
 .theme-dark .markdown-body {

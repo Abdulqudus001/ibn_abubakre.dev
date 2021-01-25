@@ -16,12 +16,6 @@
               class="post__image"
               :style="{ 'background-image': `url(${edge.node.image})` }"
             />
-            <!-- <div v-if="edge.node.image" class="post__image">
-              <g-image
-                :src="edge.node.image"
-                class="mb-2"
-              />
-            </div> -->
             <h1 class="post__title text-orange" v-html="edge.node.title" />
             <p class="description" v-html="edge.node.summary" />
             <div class="post__date">
