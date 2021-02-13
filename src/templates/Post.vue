@@ -55,6 +55,19 @@
               </g-link>
             </div>
           </div>
+          <div class="py-3">
+            <div class="flex items-center text-base">
+              <h5 class="mt-0">Spot an error?</h5>
+              <a
+                class="mx-2"
+                :href="`https://github.com/Abdulqudus001/ibn_abubakre.dev/blob/master/posts/${postPath}.md`"
+                target="_blank"
+              >
+                Edit this post
+              </a>
+            </div>
+            <hr class="mb-4">
+          </div>
         </div>
         <div class="w-full lg:w-3/5 xl:w-8/12 post__comment">
           <Disqus shortname="ibn-abubakre" :identifier="$page.post.title" :lazyConfig="lazyConfig" />
@@ -96,6 +109,12 @@ export default {
       threshold: 0.5,
     }
   }),
+  computed: {
+    postPath() {
+      let path = this.$page.post.path;
+      return path.split('/')[2];
+    }
+  }
 };
 </script>
 

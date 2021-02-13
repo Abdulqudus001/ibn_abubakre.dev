@@ -16,9 +16,9 @@ export default {
   methods: {
     toggleTheme() {
       const newTheme = this.theme === 'theme-light' ? 'theme-dark' : 'theme-light'
-      DISQUS.reset({
-        reload: true,
-      });
+      // DISQUS.reset({
+      //   reload: true,
+      // });
       localStorage.setItem('theme', newTheme)
       this.$emit('themeChanged', newTheme)
     }
