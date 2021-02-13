@@ -9,6 +9,8 @@
   --bg-background-secondary: #f7fafc;
   --bg-background-tertiary: #e2e8f0;
 
+  --bg-background-post: #fff;
+
   --bg-background-form: white;
 
   --text-copy-primary: #2E394F;
@@ -45,6 +47,8 @@
   --bg-background-primary: #2E394F;
   --bg-background-secondary: #102c44;
   --bg-background-tertiary: #1e3951;
+
+  --bg-background-post: #39465e;
 
   --bg-background-form: #1a202c;
 

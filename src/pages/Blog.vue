@@ -2,7 +2,7 @@
   <Layout>
     <div class="tags flex flex-wrap my-3 mb-12">
       <g-link
-        class="nav-link tag rounded-full bg-background-orange text-white px-5 mx-2 py-1 capitalize hover:text-white hover:opacity-75"
+        class="nav-link tag rounded-full bg-background-orange text-white px-5 mx-2 my-1 py-1 capitalize hover:text-white hover:opacity-75"
         :to="`tag/${tag.node.id}`"
         v-for="(tag, index) in $page.allTag.edges"
         :key="index"
@@ -10,7 +10,7 @@
     </div>
     <div class="posts grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       <div v-for="(edge, index) in $page.allPost.edges" :key="index" class="mx-auto sm:mx-0">
-        <div class="post max-w-sm rounded-md overflow-hidden shadow-md block text-copy-primary hover:text-copy-primary">
+        <div class="post bg-background-postBody max-w-sm rounded-md overflow-hidden shadow-md block text-copy-primary hover:text-copy-primary">
           <div>
             <div
               class="post__image"
@@ -96,7 +96,7 @@ export default {
     transition: transform .3s, box-shadow .3s;
     width: 100%;
     height: 100%;
-    background-color: lighten($color: #39465e, $amount: 0);
+    /* background-color: lighten($color: #39465e, $amount: 0); */
     padding: 30px;
     font-weight: 400;
     font-size: .9rem;
