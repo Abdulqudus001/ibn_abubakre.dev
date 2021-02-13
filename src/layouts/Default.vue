@@ -1,16 +1,19 @@
 <template>
   <div class="content-wrapper bg-background-primary font-sans text-copy-primary leading-normal flex flex-col min-h-screen" :class="theme">
     <header class="border-t-14 border-orange">
-      <nav class="container mx-auto flex flex-wrap justify-between md:items-center py-2" :class="isOpen ? 'items-start' : 'items-center'">
+      <nav class="container mx-auto flex flex-wrap justify-between items-center py-2">
         <div class="flex flex-wrap">
           <g-link to="/" class="mr-10 no-underline">
             <g-image src="../../static/brand.png" class="w-20 rounded-full" alt="logo" />
           </g-link>
           <ul
             class="uppercase tracking-wide font-bold w-full block flex-grow md:space-x-8 space-y-6 md:space-y-0 md:flex md:flex-initial md:w-auto items-center mt-8 md:mt-0"
-            :class="isOpen ? 'block': 'hidden'"
+            :class="isOpen ? ['nav-open bg-background-primary shadow-2xl md:shadow-none']: 'nav-hidden'"
             data-cypress="menu"
           >
+            <g-link to="/" class="no-underline block md:hidden mx-auto">
+              <g-image src="../../static/brand.png" class="w-40 rounded-full" alt="logo" />
+            </g-link>
             <li>
               <a v-if="$route.path === '/'" href="/#about" v-scroll-to="'#about'" class="text-copy-primary hover:text-gray-600" data-cypress="about">About</a>
               <g-link v-else to="/#about" class="text-copy-primary nav-item hover:text-gray-600">About</g-link>
@@ -24,15 +27,33 @@
             <li>
               <theme-switcher :theme="theme" @themeChanged="updateTheme" />
             </li>
+            <div class="mb-6 md:mb-0 block md:hidden">
+              <search-input />
+            </div>
           </ul>
         </div>
         <div class="mb-6 md:mb-0 hidden md:block">
           <search-input />
         </div>
-        <div class="block md:hidden" :class="isOpen ? 'mt-12' : ''">
-          <button @click="toggle" class="flex items-center px-3 py-2 border rounded border-gray-500 hover:text-gray-600 hover:border-gray-600" data-cypress="hamburger">
-            <svg class="current-color h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" fill="gray" /></svg>
+        <div class="block md:hidden">
+          <button
+            class="toggle"
+            :class="isOpen ? 'open' : null"
+            @click="toggle"
+          >
+            <span class="bg-orange" />
+            <span class="bg-orange" />
+            <span class="bg-orange" />
+            <span class="bg-orange" />
+            <span class="bg-orange" />
+            <span class="bg-orange" />
+            <span class="bg-orange" />
+            <span class="bg-orange" />
+            <span class="bg-orange" />
           </button>
+          <!-- <button @click="toggle" class="flex items-center px-3 py-2 border rounded border-gray-500 hover:text-gray-600 hover:border-gray-600" data-cypress="hamburger">
+            <svg class="current-color h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" fill="gray" /></svg>
+          </button> -->
         </div>
         
       </nav>
@@ -126,3 +147,149 @@ export default {
 </script>
 
 <style src="../css/main.css" />
+
+<style lang="scss" scoped>
+.nav-hidden {
+  @media screen and (max-width: 768px) {
+    transform: translateX(-300px);
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+  }
+
+  @media screen and (min-width: 768px) {
+    transform: none;
+    pointer-events: all;
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+
+  }
+}
+
+.nav-open {
+  @media screen and (max-width: 768px) {
+    position: fixed;
+    left: 0;
+    top: 14px;
+    height: 100vh;
+    width: 300px;
+    max-width: 100%;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+    transform: translateX(0);
+    pointer-events: all;
+    opacity: 1;
+    transition: transform .2s ease;
+  }
+
+  @media screen and (min-width: 768px) {
+    top: unset;
+    position: relative;
+    height: unset;
+    width: unset;
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.toggle {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  transition: .1s;
+  margin: 10px 10px;
+  cursor: pointer;
+  display: inline-block;
+  outline: none;
+
+  @media screen and (min-width: 1024px) {
+    display: none;
+  }
+
+  span {
+    width: 5px;
+    height: 5px;
+    display: block;
+    border-radius: 50%;
+    position: absolute;
+
+    &:nth-child(1){
+      left: 0;
+      top: 0;
+    }
+    &:nth-child(2){
+      left: 12px;
+      top: 0;
+    }
+    &:nth-child(3){
+      right: 0;
+      top: 0;
+    }
+    &:nth-child(4){
+      left: 0;
+      top: 12px;
+    }
+    &:nth-child(5){
+      position: absolute;
+      left: 12px;
+      top: 12px;
+    }
+    &:nth-child(6){
+      right: 0px;
+      top: 12px;
+    }
+    &:nth-child(7){
+      left: 0px;
+      bottom: 0px;
+    }
+    &:nth-child(8){
+      position: absolute;
+      left: 12px;
+      bottom: 0px;
+    }
+    &:nth-child(9){
+      right: 0px;
+      bottom: 0px;
+    }
+  }
+
+  &:hover span {
+    transform: scale(1.2);
+    transition: 350ms cubic-bezier(.8, .5, .2, 1.4);
+  }
+
+  &.open {
+    transform: rotate(180deg);
+    cursor: pointer;
+    transition: .2s cubic-bezier(.8, .5, .2, 1.4);
+
+    span {
+      border-radius: 50%;
+      transition-delay: 200ms;
+      transition: .5s cubic-bezier(.8, .5, .2, 1.4);
+      &:nth-child(2) {
+        left: 6px;
+        top: 6px;
+      }
+      &:nth-child(4) {
+        left: 6px;
+        top: 18px;
+      }
+      &:nth-child(6) {
+        right: 6px;
+        top: 6px;
+      }
+      &:nth-child(8) {
+        left: 18px;
+        bottom: 6px;
+      }
+    }
+  }
+}
+</style>

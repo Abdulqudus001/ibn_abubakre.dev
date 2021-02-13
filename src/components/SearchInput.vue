@@ -2,11 +2,11 @@
   <div class="relative">
     <search-focus @keyup="focusSearch"></search-focus>
 
-    <div class="relative w-full md:w-80">
+    <div class="relative w-full">
       <input
         type="text"
         placeholder='Search (Press  "s" to focus)'
-        class="bg-background-form border border-gray-500 rounded-full px-4 pl-10 py-2 outline-none focus:border-green-500 w-full md:w-80"
+        class="bg-background-form border border-gray-500 rounded-full px-4 pl-10 py-2 outline-none focus:border-green-500 w-full search"
         v-model="query"
         @input="softReset"
         @keyup="performSearch"
@@ -194,5 +194,8 @@ export default {
 .fade-leave-to {
   opacity: 0;
 }
-</style>
 
+.search::placeholder {
+  font-size: .9rem;
+}
+</style>
