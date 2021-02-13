@@ -7,7 +7,7 @@ tags:
   - HTML
   - JavaScript
   - Arrays
-image: assets/uploads/footer-bg.f004c82a.png
+image: https://res.cloudinary.com/ibnabubakre/image/upload/v1613230866/Group_2_2.png
 ---
 This is the first post in the **this vs that** series. A series aimed at comparing two often confusing terms, methods, objects, definition or anything frontend related.
 
