@@ -1,24 +1,74 @@
 <template>
   <Layout>
     <section class="hero flex items-center justify-center flex-column">
-      <div class="text-center">
+      <div class="text-center w-full" :class="isClicked === true ? 'leave' : null" @animationend="ended">
         <h1 class="hero__title">
-          Abdulqudus Abubakre<br>
+          Abdulqudus Abubakre<br />
           <small>Frontend Developer</small>
         </h1>
-        <h2 class="pacifico hero__subtitle">The world is my canvas and I create my reality</h2>
-        <button class="bg-orange hero__cta shadow-lg">Let's go</button>
+        <h2 class="pacifico hero__subtitle">
+          The world is my canvas and I create my reality
+        </h2>
+        <button class="bg-orange hero__cta shadow-lg" @click="startAnimation">
+          Let's go
+        </button>
+      </div>
+      <div
+        class="hero__main enter bg-background-postBody"
+        v-if="isClicked"
+      >
+        <pre id="style-text"></pre>
       </div>
     </section>
-
   </Layout>
 </template>
 
 <script>
+import text from '@/assets/hero-text.js';
+
 export default {
   metaInfo: {
     title: 'ibn_abubakre.dev',
     titleTemplate: '',
+  },
+  data: () => ({
+    isClicked: false,
+    openComment: false,
+  }),
+  mounted() {
+    console.log(text);
+  },
+  methods: {
+    startAnimation() {
+      this.isClicked = true;
+    },
+    ended(e) {
+      e.target.classList.add('hidden');
+    },
+    writeStyleChar(which) {
+      if (which === '/' && this.openComment === false) {
+        this.openComment = true
+      }
+      // if which == '/' && openComment == false
+      //   openComment = true
+      //   styles = $('#style-text').html() + which
+      // else if which == '/' && openComment == true
+      //   openComment = false
+      //   styles = $('#style-text').html().replace(/(\/[^\/]*\*)$/, '<em class="comment">$1/</em>')
+      // # wrap style declaration
+      // else if which == ':'
+      //   styles = $('#style-text').html().replace(/([a-zA-Z- ^\n]*)$/, '<em class="key">$1</em>:')
+      // # wrap style value 
+      // else if which == ';'
+      //   styles = $('#style-text').html().replace(/([^:]*)$/, '<em class="value">$1</em>;')
+      // # wrap selector
+      // else if which == '{'
+      //   styles = $('#style-text').html().replace(/(.*)$/, '<em class="selector">$1</em>{')
+      // else
+      //   styles = $('#style-text').html() + which
+      // $('#style-text').html styles
+      // $('#style-tag').append which
+    }
   },
 };
 </script>
@@ -26,7 +76,37 @@ export default {
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
+@keyframes exit {
+  0% {
+    -webkit-transform: translateX(0) rotateY(0) scale(1);
+    transform: translateX(0) rotateY(0) scale(1);
+    -webkit-transform-origin: -1800px 50%;
+    transform-origin: -1800px 50%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateX(1000px) rotateY(-30deg) scale(0);
+    transform: translateX(1000px) rotateY(-30deg) scale(0);
+    -webkit-transform-origin: -100% 50%;
+    transform-origin: -100% 50%;
+    opacity: 1;
+  }
+}
+
+@keyframes enter {
+  0% {
+    -webkit-transform: translateZ(-1400px) translateX(1000px);
+    transform: translateZ(-1400px) translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0) translateX(0);
+    transform: translateZ(0) translateX(0);
+  }
+}
+
 .hero {
+  overflow-x: hidden;
   min-height: 70vh;
 
   &__title {
@@ -51,18 +131,32 @@ export default {
     width: 200px;
     min-height: 60px;
     margin: 10px auto;
-    color: #FFF;
+    color: #fff;
     font-weight: 700;
     font-size: 1.2rem;
-    transition: box-shadow .2s ease;
+    transition: box-shadow 0.2s ease;
     outline: none;
 
     &:focus,
     &:hover {
-      box-shadow: 0 2px 5px -3px rgba(0, 0, 0, 0.1), 0 2px 3px -2px rgba(0, 0, 0, 0.05);
-      opacity: .85;
+      box-shadow: 0 2px 5px -3px rgba(0, 0, 0, 0.1),
+        0 2px 3px -2px rgba(0, 0, 0, 0.05);
+      opacity: 0.85;
     }
   }
+
+  &__main {
+    width: 400px;
+    height: 70vh;
+  }
+}
+
+.leave {
+  animation: exit 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+}
+
+.enter {
+  animation: enter 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
 }
 
 .pacifico {
