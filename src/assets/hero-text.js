@@ -6,8 +6,6 @@ const text = `
  */
 
 body {
-  background-color: #1a1c24; color: #fff;
-  font-size: 13px; line-height: 1.4;
   -webkit-font-smoothing: subpixel-antialiased;
 }
 

@@ -18,6 +18,32 @@
         v-if="isClicked"
       >
         <!-- <style id="style-tag"></style> -->
+        <div class="grid grid-cols-2 gap-2">
+          <div class="user">
+            <img src="@/assets/images/avatar.webp" alt="Avatar Image of abdulqudus abubakre" class="user__image">
+            <h2 class="user__title">Hello, I'm Abdulqudus Abubakre</h2>
+            <p class="user_subtitle">
+              I'm a frontend developer based in Abuja, Nigeria
+            </p>
+            <div class="user-social">
+              <a href="http://twitter.com/ibn_abubakre" target="_blank" rel="noopener noreferer">
+                <img src="@/assets/images/twitter.svg" alt="Blue twitter logo">
+              </a>
+              <a href="http://github.com/abdulqudus001" target="_blank" rel="noopener noreferer">
+                <img src="@/assets/images/github.svg" alt="Black octocat github logo">
+              </a>
+              <a href="http://linkedin.com/in/ibn-abubakre" target="_blank" rel="noopener noreferer">
+                <img src="@/assets/images/linkedin.svg" alt="Blue linkedin logo">
+              </a>
+              <a href="http://dev.to/ibn_abubakre" target="_blank" rel="noopener noreferer">
+                <img src="@/assets/images/devto.svg" alt="DEV text written on black background">
+              </a>
+            </div>
+          </div>
+          <div class="">
+            Hello Nigga1
+          </div>
+        </div>
         <span id="echo"></span>
 	      <span id="heart"><i></i></span>
         <pre id="style-text"></pre>
