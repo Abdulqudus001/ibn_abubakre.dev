@@ -14,9 +14,12 @@
         </button>
       </div>
       <div
-        class="hero__main enter bg-background-postBody"
+        class="hero__main enter"
         v-if="isClicked"
       >
+        <!-- <style id="style-tag"></style> -->
+        <span id="echo"></span>
+	      <span id="heart"><i></i></span>
         <pre id="style-text"></pre>
       </div>
     </section>
@@ -32,11 +35,14 @@ export default {
     titleTemplate: '',
   },
   data: () => ({
-    isClicked: false,
+    isClicked: true,
     openComment: false,
   }),
   mounted() {
     console.log(text);
+    const style = document.createElement('style');
+    style.id = 'style-tag';
+    document.head.append(style)
   },
   methods: {
     startAnimation() {
@@ -44,31 +50,47 @@ export default {
     },
     ended(e) {
       e.target.classList.add('hidden');
+      // this.writeStyles(text, 0, 16);
     },
     writeStyleChar(which) {
+      const pre = document.querySelector('#style-text');
+      let styles = '';
       if (which === '/' && this.openComment === false) {
         this.openComment = true
+        styles = pre.innerHTML + which
+      } else if (which === '/' && this.openComment === true) {
+        this.openComment = false
+        styles = pre.innerHTML.replace(/(\/[^\/]*\*)$/, '<em class="comment">$1/</em>');
+      } else if (which === ':') {
+        styles = pre.innerHTML.replace(/([a-zA-Z- ^\n]*)$/, '<em class="key">$1</em>:');
+      } else if (which === ';') {
+        styles = pre.innerHTML.replace(/([^:]*)$/, '<em class="value">$1</em>;');
+      } else if (which === '{') {
+        styles = pre.innerHTML.replace(/(.*)$/, '<em class="selector">$1</em>{');
+      } else {
+        styles = pre.innerHTML + which
       }
-      // if which == '/' && openComment == false
-      //   openComment = true
-      //   styles = $('#style-text').html() + which
-      // else if which == '/' && openComment == true
-      //   openComment = false
-      //   styles = $('#style-text').html().replace(/(\/[^\/]*\*)$/, '<em class="comment">$1/</em>')
-      // # wrap style declaration
-      // else if which == ':'
-      //   styles = $('#style-text').html().replace(/([a-zA-Z- ^\n]*)$/, '<em class="key">$1</em>:')
-      // # wrap style value 
-      // else if which == ';'
-      //   styles = $('#style-text').html().replace(/([^:]*)$/, '<em class="value">$1</em>;')
-      // # wrap selector
-      // else if which == '{'
-      //   styles = $('#style-text').html().replace(/(.*)$/, '<em class="selector">$1</em>{')
-      // else
-      //   styles = $('#style-text').html() + which
-      // $('#style-text').html styles
-      // $('#style-tag').append which
-    }
+
+      pre.innerHTML = styles
+      document.querySelector('#style-tag').append(which);
+    },
+    writeStyles(message, index, interval) {
+      if (index < message.length) {
+        const pre = document.querySelector('#style-text');
+        pre.scrollTop = pre.scrollHeight;
+        this.writeStyleChar(message[index++]);
+        setTimeout(() => {
+          this.writeStyles(message, index, interval);
+        }, interval)
+      }
+      // if index < message.length
+      //   pre = document.getElementById 'style-text'
+      //   pre.scrollTop = pre.scrollHeight
+      //   writeStyleChar message[index++]
+      //   setTimeout (->
+      //     writeStyles message, index, interval
+      //   ), interval
+    },
   },
 };
 </script>
@@ -146,8 +168,8 @@ export default {
   }
 
   &__main {
-    width: 400px;
-    height: 70vh;
+    width: 100%;
+    min-height: 70vh;
   }
 }
 
