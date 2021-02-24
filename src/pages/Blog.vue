@@ -1,12 +1,12 @@
 <template>
   <Layout>
     <div class="tags flex flex-wrap my-3 mb-12">
-      <g-link
+      <!-- <g-link
         class="nav-link tag rounded-full bg-background-orange text-white px-5 mx-2 my-1 py-1 capitalize hover:text-white hover:opacity-75"
         :to="`tag/${tag.node.id}`"
         v-for="(tag, index) in $page.allTag.edges"
         :key="index"
-      >{{tag.node.id}}</g-link>
+      >{{tag.node.id}}</g-link> -->
     </div>
     <div class="posts grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
       <div v-for="(edge, index) in $page.allPost.edges" :key="index" class="mx-auto sm:mx-0">
