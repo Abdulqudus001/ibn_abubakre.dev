@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <section class="hero flex items-center justify-center flex-column">
-      <div class="text-center w-full" :class="isClicked === true ? 'leave' : null" @animationend="ended">
+      <!-- <div class="text-center w-full" :class="isClicked === true ? 'leave' : null" @animationend="ended">
         <h1 class="hero__title">
           Abdulqudus Abubakre<br />
           <small>Frontend Developer</small>
@@ -12,20 +12,34 @@
         <button class="bg-orange hero__cta shadow-lg" @click="startAnimation">
           Let's go
         </button>
-      </div>
+      </div> -->
       <div
-        class="hero__main enter"
-        v-if="isClicked"
+        class="hero__main"
       >
         <!-- <style id="style-tag"></style> -->
-        <div class="grid grid-cols-2 gap-2">
+        <div>
           <div class="user">
-            <img src="@/assets/images/avatar.webp" alt="Avatar Image of abdulqudus abubakre" class="user__image">
-            <h2 class="user__title">Hello, I'm Abdulqudus Abubakre</h2>
-            <p class="user_subtitle">
-              I'm a frontend developer based in Abuja, Nigeria
-            </p>
-            <div class="user-social">
+            <div class="user__image"></div>
+            <h2 class="user__title pacifico">
+              Hello 👋, I'm
+              <span class="text-orange">
+                Abdulqudus Abubakre
+              </span>
+            </h2>
+            <div id="about">
+              <h2 class="user__subtitle">A little bit about me</h2>
+              <p class="user__about my-2">
+                I'm a frontend developer with a passion for building pixel-perfect web applications. I believe everyone deserves to use the web and as such, I try to make applications as accessible as possible.
+                Although, not so good with UI design, I have a strong eye for good design and have no troubles bringing them to life.
+              </p>
+              <p class="user__about">
+                Being community driven, I try my best to give back to the community by organizing tech events, writing blog posts, mentorings newbies....etc. I currently lead <span class="text-orange font-bold">javascriptminna</span> (a javascript focused community in Minna, Niger state, Nigeria), and am a co-lead for <a href="https://gdg.community.dev/gdg-bida/">GDGBida.</a>
+              </p>
+              <p class="user__about mt-3">
+                You can find me on any of these social media platform, or you can send me an <a href="mailto:abdulqudusabubakre@gmail.com">email</a> 
+              </p>
+            </div>
+            <div class="user-social flex justify-center">
               <a href="http://twitter.com/ibn_abubakre" target="_blank" rel="noopener noreferer">
                 <img src="@/assets/images/twitter.svg" alt="Blue twitter logo">
               </a>
@@ -40,13 +54,8 @@
               </a>
             </div>
           </div>
-          <div class="">
-            Hello Nigga1
-          </div>
         </div>
-        <span id="echo"></span>
-	      <span id="heart"><i></i></span>
-        <pre id="style-text"></pre>
+        <!-- <pre id="style-text"></pre> -->
       </div>
     </section>
   </Layout>
@@ -65,10 +74,9 @@ export default {
     openComment: false,
   }),
   mounted() {
-    console.log(text);
-    const style = document.createElement('style');
-    style.id = 'style-tag';
-    document.head.append(style)
+    // const style = document.createElement('style');
+    // style.id = 'style-tag';
+    // document.head.append(style)
   },
   methods: {
     startAnimation() {
@@ -209,5 +217,50 @@ export default {
 
 .pacifico {
   font-family: 'Pacifico', cursive;
+}
+</style>
+
+<style scoped>
+.hero__main .user__image {
+  width: 200px;
+  height: 200px;
+  border: 1px solid;
+  margin: 20px auto;
+  border-radius: 50%;
+  background-position: 50% 50%;
+  background-image: url('https://avatars.githubusercontent.com/u/36643967?s=460&u=fc6823727546425d31e9432791f119f6ed2b5670&v=4');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.hero__main .user {
+  text-align: center;
+}
+
+.hero__main .user-social a {
+  margin: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+.hero__main .user__title {
+  font-size: 1.5rem;
+  margin: 20px 0;
+}
+
+.hero__main #about {
+  max-width: 700px;
+  margin: 10px auto 20px;
+}
+
+.hero__main .user__subtitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.hero__main .user-social img {
+  width: 100%;
+  height: 100%;
 }
 </style>

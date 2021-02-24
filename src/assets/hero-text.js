@@ -27,17 +27,20 @@ body {
  *
  */
 
-pre { 
-  position: fixed; width: 48%;
-  top: 30px; bottom: 30px; left: 26%;
+#style-text { 
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
   transition: left 500ms;
   overflow: auto;
-  background-color: #313744; color: #a6c3d4;
+  background-color: #313744;
+  color: #a6c3d4;
   border: 1px solid rgba(0,0,0,0.2);
   padding: 24px 12px;
   box-sizing: border-box;
   border-radius: 3px;
-  box-shadow: 0px 4px 0px 2px rgba(0,0,0,0.1);
 }
 
 
@@ -46,7 +49,7 @@ pre {
  * Colors based on Base16 Ocean Dark
  */
 
-pre em:not(.comment) { font-style: normal; }
+#style-text em:not(.comment) { font-style: normal; }
 
 .comment       { color: #707e84; }
 .selector      { color: #c66c75; }
@@ -54,177 +57,51 @@ pre em:not(.comment) { font-style: normal; }
 .key           { color: #c7ccd4; }
 .value         { color: #d5927b; }
 
+.hero__main {
+  transition: all .2s ease;
+}
 
-/* 
- * Let's build my little pen heart.
- */ 
+.hero__main .user__image {
+  width: 200px;
+  height: 200px;
+  border: 1px solid;
+  margin: 20px auto;
+  border-radius: 50%;
+  background-position: 50% 50%;
+  background-image: url('https://avatars.githubusercontent.com/u/36643967?s=460&u=fc6823727546425d31e9432791f119f6ed2b5670&v=4');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
 
-
-/* First, we'll move this s*** over */
-
-pre { left: 50%; }
-
-
-/* Now we can build my heart */
-
-#heart, #echo { 
-  position: fixed;
-  width: 300px; height: 300px;
-  top: calc(50% - 150px); left: calc(25% - 150px);
+.hero__main .user {
   text-align: center;
-  -webkit-transform: scale(0.95);
-          transform: scale(0.95);
 }
 
-#heart { z-index: 8; }
-#echo  { z-index: 7; }
-
-#heart::before, #heart::after, #echo::before, #echo::after {
-    content: '';
-    position: absolute;
-    top: 40px;
-    width: 150px; height: 240px;
-    background: #c66c75;
-    border-radius: 150px 150px 0 0;
-    -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
-    -webkit-transform-origin: 0 100%;
-            transform-origin: 0 100%;
+.hero__main .user-social a {
+  margin: 10px;
+  width: 30px;
+  height: 30px;
 }
 
-#heart::before, #echo::before {
-  left: 150px;
+.hero__main .user__title {
+  font-size: 1.5rem;
+  margin: 20px 0;
 }
 
-#heart::after, #echo::after {
-  left: 0;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  -webkit-transform-origin: 100% 100%;
-          transform-origin: 100% 100%;
+.hero__main #about {
+  max-width: 700px;
+  margin: 10px auto 20px;
 }
 
-
-/* It needs some depth  */
-
-#heart::after { 
-  box-shadow:
-    inset -6px -6px 0px 6px rgba(255,255,255,0.1);
+.hero__main .user__subtitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 10px 0;
 }
 
-#heart::before { 
-  box-shadow:
-    inset 6px 6px 0px 6px rgba(255,255,255,0.1);
-}
-
-
-/* Makin it mine. */
-
-#heart i::before {
-  content: 'pen#PwLXXP';
-  position: absolute;
-  z-index: 9;
+.hero__main .user-social img {
   width: 100%;
-  top: 35%; left: 0;
-  font-style: normal;
-  color: rgba(255,255,255,0.8);
-  font-weight: 100;
-  font-size: 30px;
-  text-shadow: -1px -1px 0px rgba(0,0,0,0.2);
-}
-
-
-/* 
- * Hearts gotta beat. 
- */
-
-@-webkit-keyframes heartbeat {
-  0%, 100% { 
-    -webkit-transform: scale(0.95); 
-            transform: scale(0.95); 
-  }
-  50% { 
-    -webkit-transform: scale(1.00); 
-            transform: scale(1.00); 
-  }
-}
-
-@keyframes heartbeat {
-  0%, 100% { transform: scale(0.95); }
-  50%      { transform: scale(1.00); }
-}
-
-@-webkit-keyframes echo {
-  0%   { 
-    opacity: 0.1;
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-  100% { 
-    opacity: 0;
-    -webkit-transform: scale(1.4);
-            transform: scale(1.4);
-  }
-}
-
-@keyframes echo {
-  0%   { 
-    opacity: 0.1;
-    transform: scale(1);
-  }
-  100% { 
-    opacity: 0;
-    transform: scale(1.4);
-  }
-}
-
-
-/* 
- * Beautiful! Now for the beating...
- */
-
-#heart, #echo {
-  -webkit-animation-duration: 2000ms;
-          animation-duration: 2000ms;
-  -webkit-animation-timing-function: 
-    cubic-bezier(0, 0, 0, 1.74);
-          animation-timing-function: 
-            cubic-bezier(0, 0, 0, 1.74);
-  -webkit-animation-delay: 500ms;
-          animation-delay: 500ms;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-play-state: paused;
-          animation-play-state: paused;
-}
-
-#heart { 
-  -webkit-animation-name: heartbeat; 
-          animation-name: heartbeat; 
-}
-#echo { 
-  -webkit-animation-name: echo; 
-          animation-name: echo; 
-}
-
-
-/* 
- * Ready...           
- */
-
-#heart, #echo {
-
-/* 
- * ...set...          
- */
-  
-  -webkit-animation-play-state: running;
-          animation-play-state: running;
-  
-/* 
- * ...beat!        
- */
-  
+  height: 100%;
 }
 
 /* 
