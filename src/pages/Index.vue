@@ -18,7 +18,7 @@
       >
         <!-- <style id="style-tag"></style> -->
         <div>
-          <div class="user">
+          <div id="about" class="user">
             <div class="user__image"></div>
             <h2 class="user__title pacifico">
               Hello 👋, I'm
