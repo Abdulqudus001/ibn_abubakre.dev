@@ -61,13 +61,89 @@
   </Layout>
 </template>
 
+<static-query>
+  query {
+    metadata {
+      siteName
+      siteDescription
+      siteUrl
+    }
+  }
+</static-query>
+
 <script>
 import text from '@/assets/hero-text.js';
 
 export default {
-  metaInfo: {
-    title: 'ibn_abubakre.dev',
-    titleTemplate: '',
+  metaInfo() {
+    const siteUrl = this.$static.metadata.siteUrl;
+
+    return {
+      title: 'Abdulqudus Abubakre | Frontend Developer',
+      meta: [
+        {
+          key: 'description',
+          name: 'description',
+          content: 'Abdulqudus Abubakre, Frontend developer, Javascript Enthusiast, Community builder',
+        },
+        { key: 'og:url', property: 'og:url', content: `${siteUrl}` },
+        {
+          key: 'og:title',
+          property: 'og:title',
+          content: 'Abdulqudus Abubakre | Frontend Developer',
+        },
+        {
+          key: 'og:type',
+          property: 'og:type',
+          content: 'article',
+        },
+        {
+          key: 'og:description',
+          property: 'og:description',
+          content: 'Abdulqudus Abubakre, Frontend developer, Javascript Enthusiast, Community builder',
+        },
+        {
+          key: 'og:image',
+          property: 'og:image',
+          content: `${siteUrl}/avatar.webp`,
+        },
+        {
+          key: 'twitter:description',
+          name: 'twitter:description',
+          content: 'Abdulqudus Abubakre, Frontend developer, Javascript Enthusiast, Community builder',
+        },
+        {
+          key: 'twitter:card',
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          key: 'twitter:image',
+          property: 'twitter:image',
+          content: `${siteUrl}/avatar.webp`,
+        },
+        {
+          key: 'twitter:title',
+          property: 'twitter:title',
+          content: 'Abdulqudus Abubakre | Frontend Developer',
+        },
+      ],
+      script: [
+        {
+          type: 'application/ld+json',
+          json: {
+            '@context': 'http://schema.org',
+            '@type': 'BlogPosting',
+            description: 'Abdulqudus Abubakre, Frontend developer, Javascript Enthusiast, Community builder',
+            author: {
+              name: 'Abdulqudus Abubakre',
+            },
+            headline: 'Abdulqudus Abubakre | Frontend Developer',
+            image: `${siteUrl}/avatar.webp`,
+          },
+        },
+      ],
+    };
   },
   data: () => ({
     isClicked: true,
