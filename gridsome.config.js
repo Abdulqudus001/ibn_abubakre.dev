@@ -14,7 +14,7 @@ module.exports = {
       creator: '@ibn_abubakre'
     }
   },
-  titleTemplate: '%s | ibn-abubakre.dev',
+  titleTemplate: '%s | ibn-abubakre.xyz',
   plugins: [
     {
       use: 'gridsome-plugin-tailwindcss',
