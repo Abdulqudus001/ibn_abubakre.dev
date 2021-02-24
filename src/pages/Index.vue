@@ -76,7 +76,8 @@ import text from '@/assets/hero-text.js';
 
 export default {
   metaInfo() {
-    const siteUrl = this.$static.metadata.siteUrl;
+    // const siteUrl = this.$static.metadata.siteUrl;
+    const siteUrl = 'ibnabubakre.xyz';
 
     return {
       title: 'Abdulqudus Abubakre | Frontend Developer',

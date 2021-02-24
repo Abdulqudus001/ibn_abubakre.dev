@@ -11,7 +11,8 @@
 <script>
 export default {
   metaInfo() {
-    const siteUrl = this.$static.metadata.siteUrl;
+    // const siteUrl = this.$static.metadata.siteUrl;
+    const siteUrl = 'ibnabubakre.xyz';
     const postPath = this.$page.post.path;
     const image = this.$page.post.image;
     const imagePath = image || `${siteUrl}/brand.png`;
