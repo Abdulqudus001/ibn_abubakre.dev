@@ -31,21 +31,21 @@ To make an accessible modal, we need to make sure the focus is moved to the moda
 ### Let's get started
 First, let's get our modal structure
 ```html
- <section class="accessible-modal">
-   <button class="open-modal-button">Click here to open modal</button>
+<section class="accessible-modal">
+  <button class="open-modal-button">Click here to open modal</button>
 
-   <div class="modal" role="dialog" aria-modal="true">
-     <div class="modal-content">
-       <button class="close-modal-button" aria-label="Close modal">
-         <i class="fa fa-times" aria-hidden="true"></i>
-       </button>
-       <h1>Hello, the modal has opened!</h1>
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="close-modal-button" aria-label="Close modal">
+        <i class="fa fa-times" aria-hidden="true"></i>
+      </button>
+      <h1>Hello, the modal has opened!</h1>
 
-       <button class="submit-modal-button">
-         Submit &rarr;
-       </button>
-     </div>
-   </div>
+      <button class="submit-modal-button">
+        Submit &rarr;
+      </button>
+    </div>
+  </div>
 </section>
 ```
 
@@ -130,6 +130,8 @@ and our styles
   background-color: transparent;
 }
 ```
+
+This is pretty much straightforward. We have a modal which is hidden by default, now we have to make the modal visible when the button is clicked. So let's get our hands dirty with some JavaScript code.
 
 
 
