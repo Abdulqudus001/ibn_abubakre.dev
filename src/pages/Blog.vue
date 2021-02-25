@@ -27,7 +27,6 @@
                 {{ edge.node.timeToRead }} min read
               </span>
             </div>
-            
             <div class="flex mt-3 post__tags">
               <g-link v-for="tag in edge.node.tags" :key="tag.id" :to="tag.path" class="mr-2">
                 #{{ tag.title }}
