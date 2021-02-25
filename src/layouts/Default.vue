@@ -53,6 +53,7 @@
         <div class="block md:hidden">
           <button
             class="toggle"
+            v-if="isOpen === false"
             :class="isOpen ? 'open' : null"
             @click="toggle"
           >
