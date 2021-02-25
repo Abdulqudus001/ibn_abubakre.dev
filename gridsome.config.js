@@ -7,7 +7,7 @@
 module.exports = {
   siteName: 'ibn_abubakre\'s blog',
   siteDescription: 'ibn_abubakres personal blog and tidbits covering frontend tools and languages including html, css, javacript, vuejs and more',
-  siteUrl: process.env.DEPLOY_URL || 'https://ibn-abubakre.netlify.app',
+  siteUrl: 'https://ibnabubakre.xyz',
   metadata: {
     twitter: {
       site: '@ibn_abubakre',
