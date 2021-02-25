@@ -236,6 +236,7 @@ pre {
   border-radius: 8px;
   overflow-x: auto;
   line-height: 1.5;
+  font-size: .9rem;
 }
 
 .shiki-inline {
