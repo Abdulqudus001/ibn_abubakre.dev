@@ -13,23 +13,29 @@ image: https://res.cloudinary.com/ibnabubakre/image/upload/v1614293159/Group_6_2
 According to Tim Berners-Lee, *The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect.*. As time passed, several changes have been made to the web, and combined with bad practices, bad design or testing makes the web lose some of its universality.
 
 ## Web Accessibility
+
 Accessibility means being easily reached or used. Web accessibility means that websites, tools, technologies relating to the web are built in a way that can easily be accessed by people regardless of their disabilities.
 
 This talk focuses on how to build an accessible modal and assumes you already have an idea of what accessibility is. If you don't, you can take a look at this [article](https://developers.google.com/web/fundamentals/accessibility) by google developers.
 
 ## What is a modal
+
 A modal is a web page element that displays in front of a page and disables all other content, until the user is done interacting with it.
 
-| ![Image of a modal with title, content and two actions buttons](https://res.cloudinary.com/ibnabubakre/image/upload/v1614286939/modal.png) | 
-|:--:| 
-| *Sample modal with action buttons by [Abubakar Saeed](https://twitter.com/AbubakerSaeed96)* |
+| ![Image of a modal with title, content and two actions buttons](https://res.cloudinary.com/ibnabubakre/image/upload/v1614286939/modal.png) |
+| ------------------------------------------------------------------------------------------------------------------------------------------ |
+| *Sample modal with action buttons by [Abubakar Saeed](https://twitter.com/AbubakerSaeed96)*                                                |
+
 For a user without any disability, it's pretty easy to use the modal, simply move your cursor over to the modal, and begin interacting with it. But what happens when the user need to make use of assistive technologies to use your application?
 
 ## Accessible Modals
+
 To make an accessible modal, we need to make sure the focus is moved to the modal once opened, and the user is not able to interact with other elements on the page until the modal is closed.
 
 ### Let's get started
-First, let's get our modal structure
+
+First, let's get our modal structure. Note the `role` and `aria-modal` attribute
+
 ```html
 <section class="accessible-modal">
   <button class="open-modal-button">Click here to open modal</button>
@@ -50,6 +56,7 @@ First, let's get our modal structure
 ```
 
 and our styles
+
 ```css
 .modal {
   position: fixed;
@@ -130,11 +137,238 @@ and our styles
   background-color: transparent;
 }
 ```
+
 Here's what we have at the moment
 
 https://codepen.io/abdulqudus001/pen/GRqorZZ?tabs=result,html
 
 This is pretty much straightforward. We have a modal which is hidden by default, now we have to make the modal visible when the button is clicked. So let's get our hands dirty with some JavaScript code.
 
+The first thing we need to do is open the modal when the open modal button is clicked.
 
+```javascript
+// Use querySelector to select the button
+const openModalButton = document.querySelector('.open-modal-button');
+// Use querySelector to select the modal
+const modal = document.querySelector('.modal');
+// Add a click event listener to the button
+openModalButton.addEventListener('click', () => {
+  modal.classList.add('modal--open');
+});
+```
 
+So that works okay. Next we want to trap the focus within the modal, such that using the `tab` or `shift + tab` key won't take the focus away from the modal. To do that, we would have to save the last active element before the modal was opened. This would allow us have an element to return focus to when the modal is closed. 
+
+Let's modify our code a bit to accommodate that.
+
+```javascript
+// Create a variable that stores the last active element
+let previousActiveElement = null;
+// Use querySelector to select the close and submit button
+const closeModalButton = document.querySelector('.close-modal-button');
+const submitButton = document.querySelector('.submit-modal-button');
+const openModalButton = document.querySelector('.open-modal-button');
+const modal = document.querySelector('.modal');
+
+// Create function to help toggle modal visibility
+const toggleModal = () => {
+  modal.classList.toggle('modal--open');
+}
+
+openModalButton.addEventListener('click', () => {
+  // Save the current focused element before the modal is opened
+  previousActiveElement = document.activeElement;
+  toggleModal();
+});
+```
+
+After that, we would then get the first and last focusable element in our modal so we can trap the focus within the modal. Then we focus on the first focusable element in the modal (in this case, our close button). Let's create functions to help us achieve that.
+
+```javascript
+let previousActiveElement = null;
+const closeModalButton = document.querySelector('.close-modal-button');
+const submitButton = document.querySelector('.submit-modal-button');
+const openModalButton = document.querySelector('.open-modal-button');
+const modal = document.querySelector('.modal');
+
+const toggleModal = () => {
+  modal.classList.toggle('modal--open');
+}
+
+// Get all focusable elements within the modal
+const getFocusableElements = () => {
+  /**
+   * I'm selecting button in this case because the only focusable
+   * elements in the modal are buttons
+   */
+  const buttons = modal.querySelectorAll('button');
+  return [...buttons];
+}
+
+// Get the first focusable element within the modal
+const firstFocusableElement = () => {
+  const focusableElements = getFocusableElements();
+  return focusableElements[0];
+}
+
+openModalButton.addEventListener('click', () => {
+  previousActiveElement = document.activeElement;
+  toggleModal();
+  // Focus on the first focusable element in the modal
+  firstFocusableElement().focus();
+});
+```
+
+The next thing we want to do listen to the `tab` or `shift + tab` event to prevent the focus from leaving the modal.
+
+```javascript
+let previousActiveElement = null;
+const closeModalButton = document.querySelector('.close-modal-button');
+const submitButton = document.querySelector('.submit-modal-button');
+const openModalButton = document.querySelector('.open-modal-button');
+const modal = document.querySelector('.modal');
+
+const toggleModal = () => {
+  modal.classList.toggle('modal--open');
+}
+
+const getFocusableElements = () => {
+  const buttons = modal.querySelectorAll('button');
+  return [...buttons];
+}
+
+const firstFocusableElement = () => {
+  const focusableElements = getFocusableElements();
+  return focusableElements[0];
+}
+
+const lastFocusableElement = () => {
+  const focusableElements = getFocusableElements();
+  const length = focusableElements.length;
+  return focusableElements[length - 1];
+}
+
+openModalButton.addEventListener('click', () => {
+  previousActiveElement = document.activeElement;
+  toggleModal();
+  firstFocusableElement().focus();
+});
+
+const handleKeyDown = (e) => {
+  const key = e.keyCode || e.which
+  // keyCode for tab is 9
+  if (key === 9) {
+  // Check if the shift key is pressed
+    if (e.shiftKey) {
+      /**
+       * Check if the current active element is the first
+       * focusable element in the modal
+       */
+      if (document.activeElement === firstFocusableElement()) {
+        e.preventDefault();
+        // Move focus to the last focusable in the modal
+        lastFocusableElement().focus();
+      }
+    } else {
+      /**
+       * Check if the current active element is the last
+       * focusable element in the modal
+       */
+      if (document.activeElement === lastFocusableElement()) {
+        e.preventDefault();
+        // Move focus to the first focusable element in the modal
+        firstFocusableElement().focus();
+      }
+    }
+  }
+}
+
+modal.addEventListener('keydown', handleKeyDown);
+```
+
+This essentially completes our "*cage*". When the `tab` key is pressed and the focus is already on the last focusable element in the modal, we prevent the default behavior (which is to focus on the next focusable element outside the modal) using `e.preventDefault()` and then move the focus back to the first focusable element. The same thing happens when the `shift + tab` key is pressed.
+
+We're almost there, we're just left with closing the modal. We could close the modal using the `esc` key, or when the close or submit button is clicked. Let's add that:
+
+```javascript
+let previousActiveElement = null;
+const closeModalButton = document.querySelector('.close-modal-button');
+const submitButton = document.querySelector('.submit-modal-button');
+const openModalButton = document.querySelector('.open-modal-button');
+const modal = document.querySelector('.modal');
+
+const toggleModal = () => {
+  modal.classList.toggle('modal--open');
+}
+
+const getFocusableElements = () => {
+  const buttons = modal.querySelectorAll('button');
+  return [...buttons];
+}
+
+const firstFocusableElement = () => {
+  const focusableElements = getFocusableElements();
+  return focusableElements[0];
+}
+
+const lastFocusableElement = () => {
+  const focusableElements = getFocusableElements();
+  const length = focusableElements.length;
+  return focusableElements[length - 1];
+}
+
+openModalButton.addEventListener('click', () => {
+  previousActiveElement = document.activeElement;
+  toggleModal();
+  firstFocusableElement().focus();
+});
+
+// Create a function to toggle modal visibility and restore focus
+const closeModalWithFocusRestore = () => {
+  toggleModal();
+  // Move focus back to the element that was focused on before opening the modal 
+  previousActiveElement.focus();
+}
+
+// Close modal when the close button is clicked
+closeModalButton.addEventListener('click', () => {
+  closeModalWithFocusRestore();
+});
+
+// Close modal when the submit button is clicked
+submitButton.addEventListener('click', () => {
+  closeModalWithFocusRestore();
+});
+
+const handleKeyDown = (e) => {
+  const key = e.keyCode || e.which
+  if (key === 9) {
+    if (e.shiftKey) {
+      if (document.activeElement === firstFocusableElement()) {
+        e.preventDefault();
+        lastFocusableElement().focus();
+      }
+    } else {
+      if (document.activeElement === lastFocusableElement()) {
+        e.preventDefault();
+        firstFocusableElement().focus();
+      }
+    }
+  } else if (key === 27) {
+    closeModalWithFocusRestore();
+  }
+}
+
+modal.addEventListener('keydown', handleKeyDown);
+```
+
+### TL;DR
+
+To make an accessible modal, you should
+
+1. Add `role="dialog"` to help people with assistive technologies understand what's going on
+2. Your modal should have at least one focusable element and focus should be kept within the modal for as long as the modal is open
+3. Keyboard focus should move back to where it was before the modal was opened
+4. Prevent the user from interacting with any other element on the screen
+
+That being said, you don't always have to build modals from scratch, a lot of libraries out there you could use. You just need to make
