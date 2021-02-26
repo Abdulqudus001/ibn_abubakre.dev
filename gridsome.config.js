@@ -50,7 +50,7 @@ module.exports = {
     remark: {
       plugins: [
         [ 'gridsome-plugin-remark-shiki', { theme: 'Material-Theme-Palenight', skipInline: false } ],
-        [ '@noxify/gridsome-plugin-remark-embed', { 'enabledProviders' : ['codepen'] } ]
+        [ '@noxify/gridsome-plugin-remark-embed', { 'enabledProviders' : ['Codepen'] } ]
       ],
       externalLinksTarget: '_blank',
       externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
