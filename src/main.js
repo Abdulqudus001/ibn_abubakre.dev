@@ -26,11 +26,6 @@ export default function(Vue, { router, head, isClient }) {
   });
 
   head.meta.push({
-    name: 'description',
-    content: 'Personal blog by Abdulqudus Abubakre.',
-  });
-
-  head.meta.push({
     name: 'author',
     content: 'Abdulqudus Abubakre',
   });
