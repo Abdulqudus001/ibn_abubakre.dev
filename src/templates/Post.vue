@@ -170,6 +170,22 @@ h4 {
       width: 30px;
     }
   }
+
+  ol {
+    list-style-type: decimal;
+    padding-left: 20px;
+    li {
+      margin: 10px 0;
+    }
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    li {
+      margin: 10px 0;
+    }
+  }
 }
 
 .post-info {
