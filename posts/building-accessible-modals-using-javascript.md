@@ -371,4 +371,9 @@ To make an accessible modal, you should
 3. Keyboard focus should move back to where it was before the modal was opened
 4. Prevent the user from interacting with any other element on the screen
 
-That being said, you don't always have to build modals from scratch, a lot of libraries out there you could use. You just need to make
+That being said, you don't always have to build modals from scratch, there a lot of libraries out there you could use. You just need to make these libraries follow accessibility best practices.
+
+Here are some helpful resources that I feel can help
+1. [Dialog role by MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role)
+2. [Focus trap](https://github.com/focus-trap/focus-trap): saves us the stress of manually getting all the focusable elements in a modal
+3. [Accessibility best practices for modals by w3.org](https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/dialog.html)
