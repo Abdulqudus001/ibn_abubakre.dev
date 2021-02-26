@@ -114,6 +114,12 @@ export default {
       let path = this.$page.post.path;
       return path.split('/')[2];
     }
+  },
+  mounted() {
+    let codepenScript = document.createElement('script')
+    codepenScript.async = true;
+    codepenScript.setAttribute('src', 'https://static.codepen.io/assets/embed/ei.js')
+    document.head.appendChild(codepenScript)
   }
 };
 </script>
@@ -244,5 +250,9 @@ pre {
   padding: .2em .5em;
   word-break: break-all;
   border-radius: 4px;
+}
+
+.codepen-embed iframe {
+  min-height: 400px;
 }
 </style>

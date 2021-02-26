@@ -130,6 +130,9 @@ and our styles
   background-color: transparent;
 }
 ```
+Here's what we have at the moment
+
+https://codepen.io/abdulqudus001/pen/GRqorZZ?tabs=result,html
 
 This is pretty much straightforward. We have a modal which is hidden by default, now we have to make the modal visible when the button is clicked. So let's get our hands dirty with some JavaScript code.
 
