@@ -138,10 +138,6 @@ and our styles
 }
 ```
 
-Here's what we have at the moment
-
-https://codepen.io/abdulqudus001/pen/GRqorZZ?tabs=result,html
-
 This is pretty much straightforward. We have a modal which is hidden by default, now we have to make the modal visible when the button is clicked. So let's get our hands dirty with some JavaScript code.
 
 The first thing we need to do is open the modal when the open modal button is clicked.
@@ -361,6 +357,10 @@ const handleKeyDown = (e) => {
 
 modal.addEventListener('keydown', handleKeyDown);
 ```
+
+Here's what our modal looks like
+
+https://codepen.io/abdulqudus001/pen/GRqorZZ?tabs=result,html
 
 ### TL;DR
 
