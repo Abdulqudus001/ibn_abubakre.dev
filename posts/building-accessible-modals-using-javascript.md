@@ -16,7 +16,7 @@ According to Tim Berners-Lee, *The power of the Web is in its universality. Acce
 
 Accessibility means being easily reached or used. Web accessibility means that websites, tools, technologies relating to the web are built in a way that can easily be accessed by people regardless of their disabilities.
 
-This talk focuses on how to build an accessible modal and assumes you already have an idea of what accessibility is. If you don't, you can take a look at this [article](https://developers.google.com/web/fundamentals/accessibility) by google developers.
+This article focuses on how to build an accessible modal and assumes you already have an idea of what accessibility is. If you don't, you can take a look at this [article](https://developers.google.com/web/fundamentals/accessibility) by google developers.
 
 ## What is a modal
 
@@ -26,11 +26,11 @@ A modal is a web page element that displays in front of a page and disables all 
 | ------------------------------------------------------------------------------------------------------------------------------------------ |
 | *Sample modal with action buttons by [Abubakar Saeed](https://twitter.com/AbubakerSaeed96)*                                                |
 
-For a user without any disability, it's pretty easy to use the modal, simply move your cursor over to the modal, and begin interacting with it. But what happens when the user need to make use of assistive technologies to use your application?
+For a user without any disability, it's pretty easy to use the modal, simply move your cursor over to the modal, and begin interacting with it. But what happens when the user needs to make use of assistive technologies to use your application?
 
 ## Accessible Modals
 
-To make an accessible modal, we need to make sure the focus is moved to the modal once opened, and the user is not able to interact with other elements on the page until the modal is closed.
+To make an accessible modal, one needs to make sure the focus is moved to the modal once opened, and the user is not able to interact with other elements on the page until the modal is closed.
 
 ### Let's get started
 
@@ -215,7 +215,7 @@ openModalButton.addEventListener('click', () => {
 });
 ```
 
-The next thing we want to do listen to the `tab` or `shift + tab` event to prevent the focus from leaving the modal.
+The next thing we want to do is listen to the `tab` or `shift + tab` keydown event to prevent the focus from leaving the modal.
 
 ```javascript
 let previousActiveElement = null;
@@ -371,10 +371,10 @@ To make an accessible modal, you should
 3. Keyboard focus should move back to where it was before the modal was opened
 4. Prevent the user from interacting with any other element on the screen
 
-That being said, you don't always have to build modals from scratch, there a lot of libraries out there you could use. You just need to make these libraries follow accessibility best practices.
+That being said, you don't always have to build modals from scratch, there are a lot of libraries out there you could use. You just need to make these libraries follow accessibility best practices.
 
-Here are some helpful resources that I feel can help
+Feel like taking it up a notch, here are some helpful resources that can help
 
 1. [Dialog role by MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role)
-2. [Focus trap](https://github.com/focus-trap/focus-trap): saves us the stress of manually getting all the focusable elements in a modal
+2. [Focus trap](https://github.com/focus-trap/focus-trap): saves one the stress of manually getting all the focusable elements in a modal
 3. [Accessibility best practices for modals by w3.org](https://www.w3.org/TR/wai-aria-practices-1.1/examples/dialog-modal/dialog.html)
