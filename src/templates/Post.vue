@@ -266,6 +266,7 @@ pre {
   padding: .2em .5em;
   word-break: break-all;
   border-radius: 4px;
+  font-size: 1rem;
 }
 
 .codepen-embed iframe {
