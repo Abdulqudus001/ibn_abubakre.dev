@@ -15,6 +15,6 @@ collections:
       - {label: 'Title', name: 'title', widget: 'string'}
       - {label: 'Publish Date', name: 'date', widget: 'date'}
       - {label: 'Summary', name: 'summary', widget: 'string'}
-      - {label: 'Tags', name: 'tags', widget: 'select', options: ['Arrays', 'JavaScript', 'HTML', 'CSS'], multiple: true}
+      - {label: 'Tags', name: 'tags', widget: 'select', options: ['Arrays', 'JavaScript', 'HTML', 'CSS', 'Performance', 'Accessibility'], multiple: true}
       - {label: 'Image', name: 'image', widget: 'string'}
       - {label: 'Body', name: 'body', widget: 'markdown'}
