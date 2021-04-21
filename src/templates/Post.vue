@@ -190,6 +190,19 @@ h4 {
       margin: 10px 0;
     }
   }
+
+  table {
+    margin: 20px 0;
+    tr {
+      border-bottom: 1px solid;
+      text-align: left;
+
+    }
+    td {
+      padding: 15px 0;
+      padding-right: 30px;
+    }
+  }
 }
 
 .post-info {
