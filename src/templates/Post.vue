@@ -35,6 +35,7 @@
             <g-image
               :src="$page.post.image"
               class="mb-2"
+              :alt="$page.post.caption || `Header image for post ${$page.post.title}`"
             />
           </figure>
           <div v-html="$page.post.content"></div>
@@ -45,11 +46,13 @@
               <g-link
                 class="mr-4"
                 :to="`https://twitter.com/intent/tweet?text=${$page.post.title} by @ibn_abubakre&url=https://ibn-abubakre.netlify.app${$page.post.path}`"
+                aria-label="Post on twitter"
               >
                 <img src="@/assets/images/twitter.svg" alt="">
               </g-link>
               <g-link
                 :to="`https://www.linkedin.com/shareArticle?mini=true&url=https://ibn-abubakre.netlify.app/${$page.post.path}&title=${$page.post.title}&summary=${$page.post.summary}&source=ibn_abubakre's blog`"
+                aria-label="Post on linkedin"
               >
                 <img src="@/assets/images/linkedin.svg" alt="">
               </g-link>
@@ -57,7 +60,7 @@
           </div>
           <div class="py-3">
             <div class="flex items-center text-base">
-              <h5 class="mt-0">Spot an error?</h5>
+              <h5 class="mt-0 h5">Spot an error?</h5>
               <a
                 class="mx-2"
                 :href="`https://github.com/Abdulqudus001/ibn_abubakre.dev/blob/master/posts/${postPath}.md`"
@@ -88,6 +91,7 @@ query Post ($path: String!) {
     summary
     path
     image
+    caption
     tags {
       id
       title
