@@ -7,6 +7,7 @@ tags:
   - JavaScript
   - HTML
 image: https://res.cloudinary.com/ibnabubakre/image/upload/v1614201900/1_bcZz-qb_DNpvrNNwQBhQmQ.jpg
+caption: Screenshot of a javascript code snippet from the code editor
 ---
 A document fragment is a fragment of a Document Object Model (DOM) tree, a chunk of tree that's separated from the rest of the DOM.
 Before going further, let's talk about browser reflow and how it affects performance.

@@ -9,6 +9,7 @@ tags:
   - CSS
   - JavaScript
 image: https://res.cloudinary.com/ibnabubakre/image/upload/v1614293159/Group_6_2.png
+caption: Building accessible modals written on a blue background
 ---
 According to Tim Berners-Lee, *The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect.*. As time passed, several changes have been made to the web, and combined with bad practices, bad design or testing makes the web lose some of its universality.
 

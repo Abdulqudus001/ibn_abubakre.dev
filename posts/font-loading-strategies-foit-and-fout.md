@@ -8,6 +8,8 @@ tags:
   - Performance
   - CSS
 image: https://res.cloudinary.com/ibnabubakre/image/upload/v1618689853/Group_34.png
+caption: Image illustrating how flash of invisible text and flash of unstyled
+  text behaves in browsers
 ---
 When building web applications, there are times we need to use custom fonts and even though custom web fonts have been around for quite some time now, browsers still don't have an optimal way of loading these fonts which could affect your website's overall performance score.
 
