@@ -3,7 +3,7 @@ title: "Font loading strategies: FOIT and FOUT"
 date: 2021-04-17T17:16:05.723Z
 summary: Flash Of Invisible Text and Flash Of Unstyled Text are two font loading
   strategies used in major browsers. This post looks at what they are and how
-  they affect your website
+  they affect your website.
 tags:
   - Performance
   - CSS
@@ -21,9 +21,9 @@ When a custom font is not ready to be loaded, some browsers would hide the text 
 
 ## Flash Of Unstyled Text (FOUT)
 
-In this case, before the custom font is loaded, a system font is loaded by default and swapped out as soon as the custom font ready. This is the preferred behavior as showing a *flash of invisible text* has a significant effect on your websites overall performance.
+In this case, before the custom font is loaded, a system font is loaded by default and swapped out as soon as the custom font is ready. This is the preferred behavior because showing a *flash of invisible text* has a significant effect on your websites overall performance.
 
-In this article, we would look at two ways to avoid showing the invisible text. The first option, which is quite simple and straightforward is to add the `font-display: swap` rule to our CSS. Such that when you want to setup your custom font, we tell the browser to load a system font and swap it out when our font is done loading. Here's how that would look like:
+In this article, we will look at two ways to avoid showing the invisible text. The first option, which is quite simple and straightforward is to add the `font-display: swap` rule to our CSS. Such that when you want to setup your custom font, we tell the browser to load a system font and swap it out when our font is done loading. Here's how that would look like:
 
 ```css
 @font-face {
@@ -32,27 +32,25 @@ In this article, we would look at two ways to avoid showing the invisible text. 
 }
 ```
 
-This method is quite straightforward but sadly is not supported by all browsers, so if you're looking to account for all browsers, this might not work for you.
+This method is quite straightforward but sadly, not supported by all browsers, So, if you're looking to account for all browsers, this might not work for you.
 
-Another method, though involves more code but can work across all browsers involve the use of an external library called [FontFaceObserver](https://github.com/bramstein/fontfaceobserver). To make this work, you have to
+Another method, though involves more code but can work across all browsers involve the use of an external library called [FontFaceObserver](https://github.com/bramstein/fontfaceobserver). To make this work, you have to;
 
 1. Make sure you don't use the custom font in your CSS on initial page load.
-2. Use the `FontFaceObserver` library to detect when the font is loaded
-3. Update the page styling to use the custom font
+2. Use the `FontFaceObserver` library to detect when the font is loaded.
+3. Update the page styling to use the custom font.
 
 Here's a [codelab](https://web.dev/codelab-avoid-invisible-text/) by google that helps understand how to use the `FontFaceObserver` library.
 
 *TL;DR*
 
-1. FOIT and FOUT are font loading strategies used by browsers to load custom fonts
-2. FOIT shows an invisible text while FOUT uses a system font until the font is loaded
+1. FOIT and FOUT are font loading strategies used by browsers to load custom fonts.
+2. FOIT shows an invisible text while FOUT uses a system font until the font is loaded.
 3. FOUT should be preferred over FOIT.
 
-|Browser|Default behavior|
-|-------|----------------|
-|Edge|Uses system font until the custom font is ready (FOUT)|
-|Safari|Hides text until the custom font is ready (FOIT)|
-|Firefox|Initially hides text for 3 seconds. Uses system font after that until the custom font is ready (FOIT & FOUT)|
-|Chrome|Initially hides text for 3 seconds. Uses system font after that until the custom font is ready (FOIT & FOUT)|
-
-
+| Browser  | Default behavior                                                                                             |
+| -------- | ------------------------------------------------------------------------------------------------------------ |
+| Edge;    | Uses system font until the custom font is ready (FOUT)                                                       |
+| Safari;  | Hides text until the custom font is ready (FOIT)                                                             |
+| Firefox; | Initially hides text for 3 seconds. Uses system font after that until the custom font is ready (FOIT & FOUT) |
+| Chrome;  | Initially hides text for 3 seconds. Uses system font after that until the custom font is ready (FOIT & FOUT) |
