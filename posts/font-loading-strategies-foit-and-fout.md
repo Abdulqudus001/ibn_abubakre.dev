@@ -11,12 +11,12 @@ image: https://res.cloudinary.com/ibnabubakre/image/upload/v1618689853/Group_34.
 caption: Image illustrating how flash of invisible text and flash of unstyled
   text behaves in browsers
 ---
-When building web applications, there are times we need to use custom fonts and even though custom web fonts have been around for quite some time now, browsers still don't have an optimal way of loading these fonts which could affect your website's overall performance score.
-
-Fonts are usually large files that take time to load. To cater for this, some browsers would hide the text until the font is loaded (*flash of invisible text*) or show a system font (*flash of unstyled text*)
+Custom web fonts have been around for a while now but sadly web browsers still don't have an optimal way of loading them. Web fonts are usually large files and they take quite some time to load on your web page. Different browsers have different ways of handling this delay. While some browsers would show a system font pending when the custom font gets loaded (*Flash Of Unstyled Text*), some browsers would show blank text until the font has been loaded (*Flash Of Invisible Text*). 
 
 ## Flash Of Invisible Text (FOIT)
 
-While the custom web font is being loaded, some browsers would temporarily hide the text until the font has been loaded. This is referred to as *Flash Of Invisible Text* and is not usually advisable because that would mean your users would 
+When a custom font is not ready to be loaded, some browsers would hide the text completely while others would only hide it for a few seconds. Browsers like Chrome and Firefox would hide the text for 3 seconds and if the font doesn't get loaded by then, a system font would be loaded. Other browsers like Safari completely hides the text until the font is ready to be loaded. 
 
 ## Flash Of Unstyled Text (FOUT)
+
+In this case, before the custom font is loaded, a system font is loaded by default and swapped out as soon as the custom font ready. This is the preferred behavior as showing a *flash of invisible text* has a significant effect on your websites overall performance.
