@@ -42,7 +42,8 @@ Another method, though involves more code but can work across all browsers invol
 
 Here's a [codelab](https://web.dev/codelab-avoid-invisible-text/) by google that helps understand how to use the `FontFaceObserver` library.
 
-TL;DR
+*TL;DR*
+
 1. FOIT and FOUT are font loading strategies used by browsers to load custom fonts
 2. FOIT shows an invisible text while FOUT uses a system font until the font is loaded
 3. FOUT should be preferred over FOIT.
