@@ -7,7 +7,7 @@ summary: Rather than setting the z-index of an element to 9999 expecting it to
 tags:
   - HTML
   - CSS
-image: https://res.cloudinary.com/ibnabubakre/image/upload/v1620577253/Group_1_2.png
+image: https://res.cloudinary.com/ibnabubakre/image/upload/v1620581709/Group_2_3.png
 caption: Image showing z-index levels 0, 1 and -1.
 ---
 I was building a sidebar recently, and I encountered a bug where the content of the page was always on top of the mobile navbar no more how high I raised the z-index of the sidebar. This took me a while to figure out and I'm writing this article hoping that someone out there won't waste a lot of time like I did trying to solve the bug.
